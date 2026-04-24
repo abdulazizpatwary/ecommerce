@@ -1,0 +1,61 @@
+# Ecommerce Project
+
+## Overview
+
+This is a full-stack Ecommerce application built to simulate a real-world online shopping platform. The project is being developed step-by-step with continuous tracking and documentation.
+
+## Project Goals
+
+* Build a scalable ecommerce system
+* Implement user authentication and authorization
+* Product listing, search, and filtering
+* Shopping cart and checkout system
+* Order management system
+* Clean architecture for future scaling
+
+## Tech Stack (To Be Updated)
+
+* Frontend: TBD
+* Backend: TBD
+* Database: TBD
+* Authentication: TBD
+
+## Current Status
+
+**Phase 1: Initialization**
+
+* Project setup started
+* Basic app structure created
+* Splash screen UI implemented
+* App routing initialized using GetX
+
+## Features (Planned)
+
+* User registration & login
+* Product browsing
+* Product details page
+* Cart system
+* Payment integration
+* Admin dashboard
+
+## Project Tracking
+
+This project is actively maintained. Each update will be documented here with versioned progress notes.
+
+### Day 1 Update
+
+* Created main app entry (`CraftyBay`) using GetMaterialApp
+* Implemented light and dark theme support structure
+* Setup initial route (`/`) pointing to SplashScreen
+* Built SplashScreen UI with:
+
+    * Centered logo using reusable `AppLogo` widget
+    * Loading indicator (CircularProgressIndicator)
+    * Version text display
+* Created reusable `AppLogo` widget using SVG asset
+
+---
+
+## Notes
+
+This README will be continuously updated as the project evolves.
