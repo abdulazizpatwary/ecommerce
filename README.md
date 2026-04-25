@@ -49,10 +49,31 @@ This project is actively maintained. Each update will be documented here with ve
 * Setup initial route (`/`) pointing to SplashScreen
 * Built SplashScreen UI with:
 
-    * Centered logo using reusable `AppLogo` widget
-    * Loading indicator (CircularProgressIndicator)
-    * Version text display
+  * Centered logo using reusable `AppLogo` widget
+  * Loading indicator (CircularProgressIndicator)
+  * Version text display
 * Created reusable `AppLogo` widget using SVG asset
+
+### Day 2 Update
+
+* Introduced centralized routing using `AppRoutes` with `onGenerateRoute`
+* Added named routes for screens (Splash, SignIn, SignUp, VerifyEmail)
+* Integrated localization (EN, BN) using `AppLocalizations` + Flutter delegates
+* Set default locale to English and configured supported locales
+* Implemented **Sign In Screen**:
+
+  * Form validation (email via `email_validator`, password length)
+  * Navigation to Sign Up screen
+* Implemented **Sign Up Screen**:
+
+  * Multi-field form (email, name, phone, password, address)
+  * Validation including BD phone regex
+  * Navigation to Verify Email screen
+* Implemented **Verify Email (OTP) Screen**:
+
+  * 4-digit PIN input using `pin_code_fields`
+  * Countdown timer with GetX (`RxInt`) for resend logic
+  * OTP validation and navigation to Sign In
 
 ---
 

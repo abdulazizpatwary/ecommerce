@@ -1,0 +1,26 @@
+{
+  "version": "Version",
+  "signIn": "Sign In",
+  "welcomeBack": "Welcome Back",
+  "pleaseEnterEmail": "Please Enter Your Email Address",
+  "emailHint": "Email Address",
+  "passwordHint": "Password",
+  "enterEmail":"Enter email Address",
+  "enterValidEmail":"Enter valid email Address",
+  "enterValidPass":"Enter Valid Password",
+  "registerYourAccount": "Register Your Account",
+  "getStartedWithUsWithYourDetails": "Get started with us with your details",
+  "firstName": "First Name",
+  "lastName": "Last Name",
+  "phone": "Phone",
+  "deliveryAddress": "Delivery Address",
+  "signUp": "Sign Up",
+  "enterFirstName": "Enter First Name",
+  "enterLastName": "Enter Last Name",
+  "enterPhone": "Enter valid Phone Number",
+  "enterDeliveryAddress": "Enter Delivery Address",
+  "enterOTPCode": "Enter OTP Code",
+  "aFourDigitCodeHasBeenSent": "A 4 Digit OTP Code has been Sent",
+  "verify": "Verify"
+
+}

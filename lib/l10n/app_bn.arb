@@ -1,0 +1,26 @@
+{
+  "version": "সংস্করণ",
+  "signIn": "সাইন ইন",
+  "welcomeBack": "আবার স্বাগতম",
+  "pleaseEnterEmail": "অনুগ্রহ করে আপনার ইমেল লিখুন",
+  "emailHint": "ইমেইল",
+  "passwordHint": "পাসওয়ার্ড",
+  "enterEmail":"ইমেল লিখুন",
+  "enterValidEmail":"বৈধ ইমেল লিখুন",
+  "enterValidPass":"বৈধ পাসওয়ার্ড দিন",
+  "registerYourAccount": "অ্যাকাউন্ট নিবন্ধন করুন",
+  "getStartedWithUsWithYourDetails": "আপনার বিবরণ দিয়ে শুরু করুন।",
+  "firstName": "নামের প্রথমাংশ",
+  "lastName": "পদবি",
+  "phone": "ফোন",
+  "deliveryAddress": "ডেলিভারি ঠিকানা",
+  "signUp": "সাইন আপ",
+  "enterFirstName": "প্রথম নাম লিখুন",
+  "enterLastName": "শেষ নাম লিখুন",
+  "enterPhone": "বৈধ ফোন নম্বর লিখুন",
+  "enterDeliveryAddress": "ডেলিভারি ঠিকানা লিখুন",
+  "enterOTPCode": "ওটিপি কোড প্রবেশ করান",
+  "aFourDigitCodeHasBeenSent": "একটি ৪ ডিজিটের ওটিপি কোড পাঠানো হয়েছে",
+  "verify": "যাচাই"
+
+}

@@ -18,6 +18,11 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter_svg: ^2.2.4
   get: ^4.7.3
+  flutter_localizations:
+    sdk: flutter
+  intl: any
+  email_validator: ^3.0.0
+  pin_code_fields: ^9.0.0
 
 dev_dependencies:
   flutter_test:
@@ -31,6 +36,7 @@ flutter:
 
 
   uses-material-design: true
+  generate: true
 
   # To add assets to your application, add an assets section, like this:
   assets:
