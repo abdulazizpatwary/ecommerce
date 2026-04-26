@@ -2,6 +2,7 @@ import 'package:ecommerce/app/app_color.dart';
 import 'package:ecommerce/core/extensions/localizations_extension.dart';
 import 'package:ecommerce/features/auth/ui/screens/sign_up_screen.dart';
 import 'package:ecommerce/features/auth/ui/widgets/app_logo.dart';
+import 'package:ecommerce/features/common/ui/screens/main_bottom_nav_screen.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -50,7 +51,8 @@ class _SignInScreenState extends State<SignInScreen> {
                 SizedBox(height: 16),
                 ElevatedButton(
                   onPressed: () {
-                    if (_formKey.currentState!.validate()) {}
+                    //if (_formKey.currentState!.validate()) {}
+                    Navigator.pushNamedAndRemoveUntil(context, MainBottomNavScreen.name,(predicate)=>false);
                   },
                   child: Text(context.localization.signIn),
                 ),

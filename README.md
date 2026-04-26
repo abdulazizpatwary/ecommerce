@@ -75,6 +75,20 @@ This project is actively maintained. Each update will be documented here with ve
   * Countdown timer with GetX (`RxInt`) for resend logic
   * OTP validation and navigation to Sign In
 
+### Day 3 Update
+
+* Implemented Main Bottom Navigation using GetX (`MainBottomNavController`)
+* Added 4 tabs: Home, Category, Cart, Wishlist
+* Created `MainBottomNavScreen` with dynamic screen switching
+* Implemented **Home Screen UI**:
+
+  * Custom AppBar with SVG logo and action buttons (profile, call, notifications)
+  * Reusable `AppBarActionButton` widget
+  * Product search bar (`ProductSearchBar`)
+  * Carousel slider using `carousel_slider`
+  * Indicator using `ValueNotifier` + `ValueListenableBuilder`
+* Structured reusable widgets for scalability (SearchBar, Carousel, AppBar buttons)
+
 ---
 
 ## Notes

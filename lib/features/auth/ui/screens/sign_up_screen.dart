@@ -29,154 +29,150 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget build(BuildContext context) {
     final TextTheme theme = Theme.of(context).textTheme;
     return Scaffold(
-      body: Form(
-        key: _formKey,
-        autovalidateMode: AutovalidateMode.onUserInteraction,
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(24.0),
-            child: Column(
-              children: [
-                SizedBox(height: 48),
-                AppLogo(),
-                SizedBox(height: 16),
-                Text(
-                  context.localization.registerYourAccount,
-                  style: theme.titleLarge,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: Column(
+            children: [
+              SizedBox(height: 48),
+              AppLogo(width: 100,height: 100,),
+              SizedBox(height: 16),
+              Text(
+                context.localization.registerYourAccount,
+                style: theme.titleLarge,
+              ),
+              SizedBox(height: 8),
+              Text(
+                context.localization.getStartedWithUsWithYourDetails,
+                style: theme.bodyLarge!.copyWith(
+                  fontSize: 16,
+                  color: Colors.black54,
+                  fontWeight: FontWeight.w400,
                 ),
-                SizedBox(height: 8),
-                Text(
-                  context.localization.getStartedWithUsWithYourDetails,
-                  style: theme.bodyLarge!.copyWith(
-                    fontSize: 16,
-                    color: Colors.black54,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-                SizedBox(height: 24),
-                _userSignUpInputSection(),
-                SizedBox(height: 16),
-                ElevatedButton(
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-
-                    }
-                    _onTapSignUp();
-
-                  },
-                  child: Text(context.localization.signUp),
-                ),
-                SizedBox(height: 16),
-                _onTapSignInSection(),
-              ],
-            ),
+              ),
+              SizedBox(height: 24),
+              _userSignUpInputSection(),
+              SizedBox(height: 16),
+              ElevatedButton(
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {}
+                  _onTapSignUp();
+                },
+                child: Text(context.localization.signUp),
+              ),
+              SizedBox(height: 16),
+              _onTapSignInSection(),
+            ],
           ),
         ),
       ),
     );
   }
-  void _onTapSignUp(){
+
+  void _onTapSignUp() {
     Navigator.pushNamed(context, VerifyEmailScreen.name);
   }
 
   Widget _userSignUpInputSection() {
-    return Column(
-                children: [
-                  TextFormField(
-                    controller: _emailTEController,
-                    decoration: InputDecoration(
-                      hintText: context.localization.emailHint,
-                    ),
-                    validator: (value) {
-                      if (value?.trim().isEmpty ?? true) {
-                        return context.localization.enterEmail;
-                      }
-                      String email = value!;
-                      if (!EmailValidator.validate(email)) {
-                        return context.localization.enterValidEmail;
-                      }
-                      return null;
-                    },
-                  ),
-                  SizedBox(height: 8),
-                  TextFormField(
-                    controller: _firstNameTEController,
-                    decoration: InputDecoration(
-                      hintText: context.localization.firstName,
-                    ),
-                    validator: (value) {
-                      if (value?.trim().isEmpty ?? true) {
-                        return context.localization.enterFirstName;
-                      }
+    return Form(
+      key: _formKey,
+      child: Column(
+        children: [
+          TextFormField(
+            controller: _emailTEController,
+            decoration: InputDecoration(
+              hintText: context.localization.emailHint,
+            ),
+            validator: (value) {
+              if (value?.trim().isEmpty ?? true) {
+                return context.localization.enterEmail;
+              }
+              String email = value!;
+              if (!EmailValidator.validate(email)) {
+                return context.localization.enterValidEmail;
+              }
+              return null;
+            },
+          ),
+          SizedBox(height: 8),
+          TextFormField(
+            controller: _firstNameTEController,
+            decoration: InputDecoration(
+              hintText: context.localization.firstName,
+            ),
+            validator: (value) {
+              if (value?.trim().isEmpty ?? true) {
+                return context.localization.enterFirstName;
+              }
 
-                      return null;
-                    },
-                  ),
-                  SizedBox(height: 8),
-                  TextFormField(
-                    controller: _lastNameTEController,
-                    decoration: InputDecoration(
-                      hintText: context.localization.lastName,
-                    ),
-                    validator: (value) {
-                      if (value?.trim().isEmpty ?? true) {
-                        return context.localization.enterLastName;
-                      }
+              return null;
+            },
+          ),
+          SizedBox(height: 8),
+          TextFormField(
+            controller: _lastNameTEController,
+            decoration: InputDecoration(
+              hintText: context.localization.lastName,
+            ),
+            validator: (value) {
+              if (value?.trim().isEmpty ?? true) {
+                return context.localization.enterLastName;
+              }
 
-                      return null;
-                    },
-                  ),
-                  SizedBox(height: 8),
-                  TextFormField(
-                    controller: _phoneTEController,
-                    decoration: InputDecoration(
-                      hintText: context.localization.phone,
-                    ),
-                    validator: (value) {
-                      String phone = value ?? '';
-                      RegExp regexp = RegExp(
-                        r'(^([+]{1}[8]{2}|0088)?(01){1}[3-9]{1}\d{8})$',
-                      );
-                      if (!regexp.hasMatch(phone)) {
-                        return context.localization.enterPhone;
-                      }
-
-                      return null;
-                    },
-                  ),
-                  SizedBox(height: 8),
-                  TextFormField(
-                    controller: _passwordTEController,
-                    keyboardType: TextInputType.phone,
-
-                    decoration: InputDecoration(
-                      hintText: context.localization.passwordHint,
-                    ),
-                    validator: (value) {
-                      if ((value?.isEmpty ?? true) || value!.length < 6) {
-                        return context.localization.enterValidPass;
-                      }
-                      return null;
-                    },
-                  ),
-                  SizedBox(height: 8),
-                  TextFormField(
-                    controller: _deliveryAddressTEController,
-                    maxLines: 3,
-                    decoration: InputDecoration(
-                      hintText: context.localization.deliveryAddress,
-                    ),
-                    validator: (value) {
-                      if (value?.trim().isEmpty ?? true) {
-                        return context.localization.enterDeliveryAddress;
-                      }
-
-                      return null;
-                    },
-                  ),
-                ],
+              return null;
+            },
+          ),
+          SizedBox(height: 8),
+          TextFormField(
+            controller: _phoneTEController,
+            decoration: InputDecoration(hintText: context.localization.phone),
+            validator: (value) {
+              String phone = value ?? '';
+              RegExp regexp = RegExp(
+                r'(^([+]{1}[8]{2}|0088)?(01){1}[3-9]{1}\d{8})$',
               );
+              if (!regexp.hasMatch(phone)) {
+                return context.localization.enterPhone;
+              }
+
+              return null;
+            },
+          ),
+          SizedBox(height: 8),
+          TextFormField(
+            controller: _passwordTEController,
+            keyboardType: TextInputType.phone,
+
+            decoration: InputDecoration(
+              hintText: context.localization.passwordHint,
+            ),
+            validator: (value) {
+              if ((value?.isEmpty ?? true) || value!.length < 6) {
+                return context.localization.enterValidPass;
+              }
+              return null;
+            },
+          ),
+          SizedBox(height: 8),
+          TextFormField(
+            controller: _deliveryAddressTEController,
+            maxLines: 3,
+            decoration: InputDecoration(
+              hintText: context.localization.deliveryAddress,
+            ),
+            validator: (value) {
+              if (value?.trim().isEmpty ?? true) {
+                return context.localization.enterDeliveryAddress;
+              }
+
+              return null;
+            },
+          ),
+        ],
+      ),
+    );
   }
+
   @override
   void dispose() {
     // TODO: implement dispose

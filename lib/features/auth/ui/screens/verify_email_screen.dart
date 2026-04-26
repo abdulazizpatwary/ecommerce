@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:ecommerce/app/app_color.dart';
+import 'package:ecommerce/app/app_constat.dart';
 import 'package:ecommerce/core/extensions/localizations_extension.dart';
 import 'package:ecommerce/features/auth/ui/screens/sign_in_screen.dart';
 import 'package:ecommerce/features/auth/ui/screens/sign_up_screen.dart';
@@ -20,14 +21,17 @@ class VerifyEmailScreen extends StatefulWidget {
 }
 
 class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
+  RxBool isResendEnable=AppConstat.initialButtonEnable.obs;
   final PinInputController _pinInputController = PinInputController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  RxInt timeCount=30.obs;
-  Future<void> timeCounter ()async{
-    timeCount.value=120;
-    Timer.periodic(Duration(seconds: 1), (timer){
+  RxInt timeCount=AppConstat.initialResendTime.obs;
+  late Timer timer;
+  void resendTimerCount (){
+    timeCount.value=AppConstat.initialResendTime;
+    timer=Timer.periodic(Duration(seconds: 1), (timer){
       if(timeCount.value==0){
         timer.cancel();
+        isResendEnable.value=true;
       }else{
         timeCount.value=timeCount.value-1;
       }
@@ -38,7 +42,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    timeCounter();
+    resendTimerCount();
   }
 
   @override
@@ -91,8 +95,9 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                 _onTapSignUpSection(),
                 Obx(
                  () {
-                    return TextButton(onPressed: (){
-                      timeCounter();
+                    return TextButton(
+                        onPressed:!isResendEnable.value?null: (){
+                      resendTimerCount();
                     }, child: Text('Resend Code',style: TextStyle(
                       color:timeCount.value!=0? Colors.grey:AppColors.themeColor,
                         fontSize: 18,fontWeight: FontWeight.w500),));
@@ -172,5 +177,6 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
     // TODO: implement dispose
     super.dispose();
     _pinInputController.dispose();
+    timer.cancel();
   }
 }
