@@ -19,9 +19,8 @@ class CraftyBay extends StatelessWidget {
       darkTheme: AppThemeData.darkThemeData,
       themeMode: ThemeMode.light,
       locale: Locale('en'),
-
-      initialRoute: SplashScreen.name,
-      onGenerateRoute: AppRoutes.appOnRoutes,
+      initialRoute: '/',
+      onGenerateRoute: AppRoutes.onGenerateAppRoutes,
       localizationsDelegates: [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
