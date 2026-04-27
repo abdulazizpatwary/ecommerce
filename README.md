@@ -89,6 +89,19 @@ This project is actively maintained. Each update will be documented here with ve
   * Indicator using `ValueNotifier` + `ValueListenableBuilder`
 * Structured reusable widgets for scalability (SearchBar, Carousel, AppBar buttons)
 
+### Day 4 Update
+
+* Enhanced Home Screen with structured sections:
+
+  * Categories section with horizontal scroll (`CategoryItem`)
+  * Multiple product sections: Popular, Special, New
+* Created reusable `HomeSectionHeader` widget with "See All" action
+* Implemented horizontal product list using `ListView.builder`
+* Built reusable `ProductItemWidget`:
+
+  * Product image, title, price, rating, wishlist icon
+* Improved UI composition and reusability across home screen
+
 ---
 
 ## Notes
