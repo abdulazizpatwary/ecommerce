@@ -102,6 +102,25 @@ This project is actively maintained. Each update will be documented here with ve
   * Product image, title, price, rating, wishlist icon
 * Improved UI composition and reusability across home screen
 
+### Day 5 Update
+
+* Implemented **Category List Screen**:
+
+  * Grid layout using `GridView.builder`
+  * Custom back handling using `PopScope` + GetX controller
+* Created reusable custom `AppBarWidget` with manual back button control
+* Implemented **Product List Screen**:
+
+  * Grid-based product display (3 columns)
+  * Dynamic title based on selected category
+* Improved navigation flow between Home → Category → Product list
+
+### Day 6 Update
+
+* Added navigation from `CategoryItem` to `ProductListScreen`
+* Passed category name via route arguments
+* Improved user flow: Category → Product List based on selection
+
 ---
 
 ## Notes

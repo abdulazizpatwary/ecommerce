@@ -20,7 +20,9 @@ class ProductItemWidget extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              padding:EdgeInsets.all(16),
+              height: 100,
+              width: 140,
+              padding:EdgeInsets.all(8),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
                   topRight: Radius.circular(16),
@@ -30,15 +32,15 @@ class ProductItemWidget extends StatelessWidget {
               ),
               child: Image.asset(
                 AssetsPath.shoePng,
-                width: 140,
-                height: 80,
-                fit: BoxFit.scaleDown,
+                fit: BoxFit.cover,
+                //fit: BoxFit.scaleDown,
               ),
             ),
 
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     'New Year special shoe',

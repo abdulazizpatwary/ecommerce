@@ -3,6 +3,7 @@ import 'package:ecommerce/features/auth/ui/screens/sign_up_screen.dart';
 import 'package:ecommerce/features/auth/ui/screens/splash_screen.dart';
 import 'package:ecommerce/features/auth/ui/screens/verify_email_screen.dart';
 import 'package:ecommerce/features/common/ui/screens/main_bottom_nav_screen.dart';
+import 'package:ecommerce/features/product/ui/screens/product_list_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppRoutes {
@@ -23,6 +24,10 @@ class AppRoutes {
     }
     else if(setting.name==MainBottomNavScreen.name){
       route=const MainBottomNavScreen();
+    }
+    else if(setting.name==ProductListScreen.name){
+      String categoryName= setting.arguments as String;
+      route= ProductListScreen(categoryName: categoryName,);
     }
     return MaterialPageRoute(builder: (context)=>route);
   }

@@ -1,4 +1,5 @@
 import 'package:ecommerce/app/assets_path.dart';
+import 'package:ecommerce/features/common/ui/controllers/main_bottom_nav_controller.dart';
 import 'package:ecommerce/features/home/ui/widgets/appbar_action_button.dart';
 import 'package:ecommerce/features/home/ui/widgets/carousel_slider_widget.dart';
 import 'package:ecommerce/features/home/ui/widgets/category_item_widget.dart';
@@ -7,6 +8,7 @@ import 'package:ecommerce/features/home/ui/widgets/productSearchBar.dart';
 import 'package:ecommerce/features/home/ui/widgets/product_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -34,7 +36,9 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(height: 16),
               CarouselSliderWidget(),
               SizedBox(height: 8),
-              HomeSctionHeader(title: 'All Categories', onTap: () {}),
+              HomeSctionHeader(title: 'All Categories', onTap: () {
+                Get.find<MainBottomNavController>().moveToCategory();
+              }),
               SizedBox(height: 8),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
@@ -62,14 +66,14 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildProductItemListbyExclusivity() {
     return SizedBox(
-      height: 188,
+      height: 182,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: 10,
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.only(right: 8.0),
-            child: ProductItemWidget(),
+            child: FittedBox(child: ProductItemWidget()),
           );
         },
       ),
