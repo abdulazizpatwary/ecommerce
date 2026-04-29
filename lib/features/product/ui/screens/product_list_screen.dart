@@ -1,5 +1,5 @@
 import 'package:ecommerce/features/common/ui/widgets/app_bar.dart';
-import 'package:ecommerce/features/home/ui/widgets/product_item_widget.dart';
+import 'package:ecommerce/features/common/ui/widgets/product_item_widget.dart';
 import 'package:flutter/material.dart';
 
 class ProductListScreen extends StatefulWidget {

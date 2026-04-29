@@ -121,6 +121,25 @@ This project is actively maintained. Each update will be documented here with ve
 * Passed category name via route arguments
 * Improved user flow: Category → Product List based on selection
 
+### Day 7 Update
+
+* Implemented **Product Details Screen**:
+
+  * Image carousel section
+  * Product info (title, rating, reviews, wishlist)
+  * Quantity selector (`ProductIncDecWidget`)
+  * Color selection (`ColorPickerWidget`)
+  * Size selection (`SizePickerWidget`)
+  * Product description section
+  * Bottom bar with price and "Add to Cart" button
+* Added navigation from `ProductItemWidget` to `ProductDetailsScreen` with productId
+* Built reusable interactive widgets:
+
+  * Increment/Decrement controller
+  * Color picker (selectable state)
+  * Size picker (selectable state)
+* Improved product interaction flow: Product List → Product Details
+
 ---
 
 ## Notes
