@@ -3,4 +3,5 @@ class AssetsPath {
   static const String logoSvg ='$_imageBaseUrl/logo.svg';
   static const String navLogoSvg ='$_imageBaseUrl/logo_nav.svg';
   static const String shoePng ='$_imageBaseUrl/shoe.png';
+  static const String cartShoePng ='$_imageBaseUrl/cart_shoe.png';
 }

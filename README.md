@@ -140,6 +140,28 @@ This project is actively maintained. Each update will be documented here with ve
   * Size picker (selectable state)
 * Improved product interaction flow: Product List → Product Details
 
+### Day 8 Update
+
+* Implemented **Product Review Screen**:
+
+  * List of reviews using `ListView.builder`
+  * Bottom section with total review count and add review button
+* Implemented **Create Review Screen**:
+
+  * Form with first name, last name, and review input
+  * Validation for user inputs
+* Created reusable `ReviewCardItem` widget for displaying reviews
+* Implemented **Wishlist Screen** with grid layout of products
+* Implemented **Cart Screen**:
+
+  * Cart item list with quantity control
+  * Total price and checkout section
+* Created reusable `CartItem` widget
+* Updated **Product Details Screen**:
+
+  * Added navigation to Product Review Screen
+* Improved overall user flow: Product Details → Reviews → Create Review
+
 ---
 
 ## Notes

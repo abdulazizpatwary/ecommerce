@@ -2,8 +2,9 @@ import 'package:ecommerce/app/app_color.dart';
 import 'package:ecommerce/features/common/ui/widgets/app_bar.dart';
 import 'package:ecommerce/features/product/ui/widgets/color_picker_widget.dart';
 import 'package:ecommerce/features/product/ui/widgets/product_image_carousel_slider.dart';
-import 'package:ecommerce/features/product/ui/widgets/product_inc_dec_widget.dart';
+import 'package:ecommerce/features/common/ui/widgets/product_inc_dec_widget.dart';
 import 'package:ecommerce/features/product/ui/widgets/size_picker_widget.dart';
+import 'package:ecommerce/features/review/ui/screens/product_review_screen.dart';
 import 'package:flutter/material.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
@@ -49,48 +50,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                     'Happy New Year Special deal Save 30%',
                                     style: theme.titleMedium,
                                   ),
-                                  Row(
-                                    //mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Wrap(
-                                        children: [
-                                          Icon(
-                                            Icons.star,
-                                            color: Colors.amber,
-                                            size: 18,
-                                          ),
-                                          SizedBox(width: 4),
-                                          Text(
-                                            '4.8',
-                                            style: TextStyle(
-                                              color: Colors.grey,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      TextButton(
-                                        onPressed: () {},
-                                        child: Text('Reviews'),
-                                      ),
-                                      Container(
-                                        decoration: BoxDecoration(
-                                          color: AppColors.themeColor,
-                                          borderRadius: BorderRadius.circular(
-                                            4,
-                                          ),
-                                        ),
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(4.0),
-                                          child: Icon(
-                                            Icons.favorite_border_outlined,
-                                            color: Colors.white,
-                                            size: 16,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                                  _buildReviewSection(context),
                                 ],
                               ),
                             ),
@@ -99,25 +59,16 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                           ],
                         ),
                         SizedBox(height: 16),
-                        Text('Color', style: theme.titleMedium),
-                        SizedBox(height: 8),
-                        ColorPickerWidget(
-                          colors: ['Red', 'Green', 'Yellow', 'Pink'],
-                          onColorChange: (String selectedColor) {},
-                        ),
-                        SizedBox(height: 16),
-                        Text('Size', style: theme.titleMedium),
-                        SizedBox(height: 8),
-                        SizePickerWidget(
-                          sizes: ['S', 'M', 'L', 'XL', 'XXL'],
-                          onSizeChange: (String selectedSize) {},
-                        ),
+                        _colorAndSizeSection(theme),
                         SizedBox(height: 16),
                         Text('Description', style: theme.titleMedium),
                         SizedBox(height: 8),
                         Text(
                           ''' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.''',
-                            style: TextStyle(fontWeight: FontWeight.w400,color: Colors.grey),
+                          style: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            color: Colors.grey,
+                          ),
                         ),
                       ],
                     ),
@@ -129,6 +80,65 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
           _buildPriceAndAddToCartSection(theme),
         ],
       ),
+    );
+  }
+
+  Widget _colorAndSizeSection(TextTheme theme) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text('Color', style: theme.titleMedium),
+        SizedBox(height: 8),
+        ColorPickerWidget(
+          colors: ['Red', 'Green', 'Yellow', 'Pink'],
+          onColorChange: (String selectedColor) {},
+        ),
+        SizedBox(height: 16),
+        Text('Size', style: theme.titleMedium),
+        SizedBox(height: 8),
+        SizePickerWidget(
+          sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+          onSizeChange: (String selectedSize) {},
+        ),
+      ],
+    );
+  }
+
+  Widget _buildReviewSection(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Wrap(
+          children: [
+            Icon(Icons.star, color: Colors.amber, size: 18),
+            SizedBox(width: 4),
+            Text(
+              '4.8',
+              style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w600),
+            ),
+          ],
+        ),
+        TextButton(
+          onPressed: () {
+            Navigator.pushNamed(context, ProductReviewScreen.name);
+          },
+          child: Text('Reviews'),
+        ),
+        Container(
+          decoration: BoxDecoration(
+            color: AppColors.themeColor,
+            borderRadius: BorderRadius.circular(4),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: Icon(
+              Icons.favorite_border_outlined,
+              color: Colors.white,
+              size: 16,
+            ),
+          ),
+        ),
+      ],
     );
   }
 

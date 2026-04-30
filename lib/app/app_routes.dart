@@ -5,6 +5,8 @@ import 'package:ecommerce/features/auth/ui/screens/verify_email_screen.dart';
 import 'package:ecommerce/features/common/ui/screens/main_bottom_nav_screen.dart';
 import 'package:ecommerce/features/product/ui/screens/product_details_screen.dart';
 import 'package:ecommerce/features/product/ui/screens/product_list_screen.dart';
+import 'package:ecommerce/features/review/ui/screens/create_review_screen.dart';
+import 'package:ecommerce/features/review/ui/screens/product_review_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppRoutes {
@@ -33,6 +35,12 @@ class AppRoutes {
     else if(setting.name==ProductDetailsScreen.name){
       int productId= setting.arguments as int;
       route= ProductDetailsScreen(productId: productId,);
+    }
+    else if(setting.name==ProductReviewScreen.name){
+      route= ProductReviewScreen();
+    }
+    else if(setting.name==CreateReviewScreen.name){
+      route= CreateReviewScreen();
     }
     return MaterialPageRoute(builder: (context)=>route);
   }
