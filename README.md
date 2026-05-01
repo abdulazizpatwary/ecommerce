@@ -162,6 +162,18 @@ This project is actively maintained. Each update will be documented here with ve
   * Added navigation to Product Review Screen
 * Improved overall user flow: Product Details → Reviews → Create Review
 
+### Day 9 Update
+
+* Implemented **Network Layer (NetworkCaller)**:
+
+  * Support for GET, POST, PUT, PATCH, DELETE requests
+  * Centralized API calling structure
+  * JSON encoding/decoding handling
+  * Custom response wrapper (`NetworkResponse`)
+* Added request & response logging using `logger`
+* Standardized error handling (200, 201, 401, others status codes)
+* Prepared foundation for backend API integration
+
 ---
 
 ## Notes
