@@ -1,11 +1,16 @@
 import 'package:ecommerce/app/app_color.dart';
 import 'package:ecommerce/core/extensions/localizations_extension.dart';
+import 'package:ecommerce/core/widgets/centered_progress_indicator.dart';
+import 'package:ecommerce/core/widgets/scaffold_msg.dart';
+import 'package:ecommerce/features/auth/data/models/sign_in_requests_model.dart';
+import 'package:ecommerce/features/auth/ui/controllers/sign_in_controller.dart';
 import 'package:ecommerce/features/auth/ui/screens/sign_up_screen.dart';
 import 'package:ecommerce/features/auth/ui/widgets/app_logo.dart';
 import 'package:ecommerce/features/common/ui/screens/main_bottom_nav_screen.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -20,6 +25,7 @@ class _SignInScreenState extends State<SignInScreen> {
   final TextEditingController _emailTEController = TextEditingController();
   final TextEditingController _passwordTEController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final SignInController _signInController = Get.find<SignInController>();
 
   @override
   Widget build(BuildContext context) {
@@ -49,12 +55,16 @@ class _SignInScreenState extends State<SignInScreen> {
                 SizedBox(height: 24),
                 _userSignInputSection(),
                 SizedBox(height: 16),
-                ElevatedButton(
-                  onPressed: () {
-                    //if (_formKey.currentState!.validate()) {}
-                    Navigator.pushNamedAndRemoveUntil(context, MainBottomNavScreen.name,(predicate)=>false);
+                GetBuilder<SignInController>(
+                  builder: (controller) {
+                    if (controller.inProgress) {
+                      return CenteredProgressIndicator();
+                    }
+                    return ElevatedButton(
+                      onPressed: onTapSignIn,
+                      child: Text(context.localization.signIn),
+                    );
                   },
-                  child: Text(context.localization.signIn),
                 ),
                 SizedBox(height: 16),
                 _onTapSignUpSection(),
@@ -66,42 +76,58 @@ class _SignInScreenState extends State<SignInScreen> {
     );
   }
 
+  void onTapSignIn() async {
+    if (_formKey.currentState!.validate()) {
+      SignInRequestModel model = SignInRequestModel(
+        email: _emailTEController.text.trim(),
+        password: _passwordTEController.text,
+      );
+      bool isSuccess = await _signInController.signIn(model);
+      if (isSuccess) {
+        if (!mounted) return;
+        snackBarMsg(context: context, msg: "SuccessFully Logged In");
+        Navigator.pushNamedAndRemoveUntil(context, MainBottomNavScreen.name,(predicate)=>false);
+      } else {
+        if (!mounted) return;
+        snackBarMsg(context: context, msg: _signInController.errorMsg!);
+      }
+    }
+  }
+
   Widget _userSignInputSection() {
     return Column(
-                children: [
-                  TextFormField(
-                    keyboardType: TextInputType.emailAddress,
-                    controller: _emailTEController,
-                    decoration: InputDecoration(
-                      hintText: context.localization.emailHint,
-                    ),
-                    validator: (value) {
-                      if (value?.trim().isEmpty ?? true) {
-                        return context.localization.enterEmail;
-                      }
-                      String email = value!;
-                      if (!EmailValidator.validate(email)) {
-                        return context.localization.enterValidEmail;
-                      }
-                      return null;
-                    },
-                  ),
-                  SizedBox(height: 8),
-                  TextFormField(
-                    controller: _passwordTEController,
-                    keyboardType: TextInputType.phone,
-                    decoration: InputDecoration(
-                      hintText: context.localization.passwordHint,
-                    ),
-                    validator: (value) {
-                      if ((value?.isEmpty ?? true) || value!.length < 6) {
-                        return context.localization.enterValidPass;
-                      }
-                      return null;
-                    },
-                  ),
-                ],
-              );
+      children: [
+        TextFormField(
+          keyboardType: TextInputType.emailAddress,
+          controller: _emailTEController,
+          decoration: InputDecoration(hintText: context.localization.emailHint),
+          validator: (value) {
+            if (value?.trim().isEmpty ?? true) {
+              return context.localization.enterEmail;
+            }
+            String email = value!;
+            if (!EmailValidator.validate(email)) {
+              return context.localization.enterValidEmail;
+            }
+            return null;
+          },
+        ),
+        SizedBox(height: 8),
+        TextFormField(
+          controller: _passwordTEController,
+          keyboardType: TextInputType.phone,
+          decoration: InputDecoration(
+            hintText: context.localization.passwordHint,
+          ),
+          validator: (value) {
+            if ((value?.isEmpty ?? true) || value!.length < 6) {
+              return context.localization.enterValidPass;
+            }
+            return null;
+          },
+        ),
+      ],
+    );
   }
 
   Widget _onTapSignUpSection() {
@@ -126,6 +152,7 @@ class _SignInScreenState extends State<SignInScreen> {
       ),
     );
   }
+
   @override
   void dispose() {
     // TODO: implement dispose

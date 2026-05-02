@@ -1,5 +1,6 @@
 import 'package:ecommerce/app/assets_path.dart';
 import 'package:ecommerce/features/common/ui/controllers/main_bottom_nav_controller.dart';
+import 'package:ecommerce/features/home/ui/controllers/home_slider_controller.dart';
 import 'package:ecommerce/features/home/ui/widgets/appbar_action_button.dart';
 import 'package:ecommerce/features/home/ui/widgets/carousel_slider_widget.dart';
 import 'package:ecommerce/features/common/ui/widgets/category_item_widget.dart';
@@ -21,6 +22,13 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController _searchBar = TextEditingController();
+  final HomeSliderController _homeSliderController=Get.find<HomeSliderController>();
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _homeSliderController.getSliderList();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -102,7 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
       catergoryItems.add(
         Padding(
           padding: const EdgeInsets.only(right: 16.0),
-          child: CategoryItem(),
+          //child: CategoryItem(),
         ),
       );
     }

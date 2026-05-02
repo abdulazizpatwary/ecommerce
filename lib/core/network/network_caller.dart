@@ -6,6 +6,10 @@ import 'package:logger/logger.dart';
 
 class NetworkCaller {
   final Logger _logger=Logger();
+  final String accessToken;
+  final Function unAuthorize;
+
+  NetworkCaller({required this.accessToken, required this.unAuthorize});
   Future<NetworkResponse> getRequest({
     required String url,
     Map<String, dynamic>? queryParams,
@@ -18,7 +22,7 @@ class NetworkCaller {
 
       Uri uri = Uri.parse(url);
 
-      Map<String, String> headers = {'token': ''};
+      Map<String, String> headers = {'token': accessToken};
       _logRequest(url: url,headers: headers);
       Response response = await get(uri, headers: headers);
       _logResponse(url: url, response: response);
@@ -32,6 +36,7 @@ class NetworkCaller {
 
         );
       } else if (response.statusCode == 401) {
+        unAuthorize();
         return NetworkResponse(
           statusCode: response.statusCode,
           isSuccess: false,
@@ -61,7 +66,7 @@ class NetworkCaller {
       Uri uri = Uri.parse(url);
       Map<String, String> headers = {
         'content-type': 'application/json',
-        'token': '',
+        'token': accessToken,
       };
       _logRequest(url: url,headers: headers,body: body);
       Response response = await post(
@@ -80,6 +85,7 @@ class NetworkCaller {
 
         );
       } else if (response.statusCode == 401) {
+        unAuthorize();
         return NetworkResponse(
           statusCode: response.statusCode,
           isSuccess: false,
@@ -109,7 +115,7 @@ class NetworkCaller {
       Uri uri = Uri.parse(url);
       Map<String, String> headers = {
         'content-type': 'application/json',
-        'token': '',
+        'token': accessToken,
       };
       _logRequest(url: url,headers: headers,body: body);
       Response response = await put(
@@ -126,6 +132,7 @@ class NetworkCaller {
 
         );
       } else if (response.statusCode == 401) {
+        unAuthorize();
         return NetworkResponse(
           statusCode: response.statusCode,
           isSuccess: false,
@@ -155,7 +162,7 @@ class NetworkCaller {
       Uri uri = Uri.parse(url);
       Map<String, String> headers = {
         'content-type': 'application/json',
-        'token': '',
+        'token': accessToken,
       };
       _logRequest(url: url,headers: headers,body: body);
       Response response = await patch(
@@ -172,6 +179,7 @@ class NetworkCaller {
           responseBody: decodedData
         );
       } else if (response.statusCode == 401) {
+        unAuthorize();
         return NetworkResponse(
           statusCode: response.statusCode,
           isSuccess: false,
@@ -201,7 +209,7 @@ class NetworkCaller {
       Uri uri = Uri.parse(url);
       Map<String, String> headers = {
         'content-type': 'application/json',
-        'token': '',
+        'token': accessToken,
       };
       _logRequest(url: url,headers: headers,body: body);
       Response response = await delete(
@@ -218,6 +226,7 @@ class NetworkCaller {
           responseBody: decodedData,
         );
       } else if (response.statusCode == 401) {
+        unAuthorize();
         return NetworkResponse(
           statusCode: response.statusCode,
           isSuccess: false,
