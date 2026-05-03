@@ -1,7 +1,7 @@
 import 'package:ecommerce/app/app_urls.dart';
 import 'package:ecommerce/core/network/network_caller.dart';
 import 'package:ecommerce/core/network/network_response.dart';
-import 'package:ecommerce/features/category/data/models/category_item_model.dart';
+import 'package:ecommerce/features/common/data/models/category_item_model.dart';
 import 'package:get/get.dart';
 
 class CategoryController extends GetxController{
@@ -10,7 +10,7 @@ class CategoryController extends GetxController{
   String? _errorMsg;
 
   int _currentPage=0;
-  final int _pagePerCount=20;
+  final int _pagePerCount=30;
 
   int? _totalPage;
 

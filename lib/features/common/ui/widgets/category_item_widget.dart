@@ -1,5 +1,5 @@
 import 'package:ecommerce/app/app_color.dart';
-import 'package:ecommerce/features/category/data/models/category_item_model.dart';
+import 'package:ecommerce/features/common/data/models/category_item_model.dart';
 import 'package:ecommerce/features/product/ui/screens/product_list_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +11,7 @@ class CategoryItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        Navigator.pushNamed(context, ProductListScreen.name,arguments: model.title);
+        Navigator.pushNamed(context, ProductListScreen.name,arguments: model);
       },
       child: Column(
         children: [

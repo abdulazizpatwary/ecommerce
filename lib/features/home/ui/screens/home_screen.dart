@@ -1,12 +1,17 @@
 import 'package:ecommerce/app/assets_path.dart';
+import 'package:ecommerce/core/widgets/centered_progress_indicator.dart';
+import 'package:ecommerce/features/common/data/models/category_item_model.dart';
+import 'package:ecommerce/features/common/data/models/enum_tag.dart';
+import 'package:ecommerce/features/common/data/models/product_model.dart';
+import 'package:ecommerce/features/common/ui/controllers/category_controller.dart';
 import 'package:ecommerce/features/common/ui/controllers/main_bottom_nav_controller.dart';
-import 'package:ecommerce/features/home/ui/controllers/home_slider_controller.dart';
+import 'package:ecommerce/features/common/ui/widgets/category_item_widget.dart';
+import 'package:ecommerce/features/common/ui/widgets/product_item_widget.dart';
+import 'package:ecommerce/features/home/ui/controllers/product_list_by_tag_controller.dart';
 import 'package:ecommerce/features/home/ui/widgets/appbar_action_button.dart';
 import 'package:ecommerce/features/home/ui/widgets/carousel_slider_widget.dart';
-import 'package:ecommerce/features/common/ui/widgets/category_item_widget.dart';
 import 'package:ecommerce/features/home/ui/widgets/home_section_header_widget.dart';
 import 'package:ecommerce/features/home/ui/widgets/productSearchBar.dart';
-import 'package:ecommerce/features/common/ui/widgets/product_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -22,12 +27,16 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController _searchBar = TextEditingController();
-  final HomeSliderController _homeSliderController=Get.find<HomeSliderController>();
+  final ProductListByTagController _productListByTagController =ProductListByTagController();
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    _homeSliderController.getSliderList();
+    _productListByTagController.getProductListByTag(ProductListTag.newProducts);
+    _productListByTagController.getProductListByTag(ProductListTag.popularProduct);
+    _productListByTagController.getProductListByTag(ProductListTag.specialProducts);
+
   }
 
   @override
@@ -48,22 +57,38 @@ class _HomeScreenState extends State<HomeScreen> {
                 Get.find<MainBottomNavController>().moveToCategory();
               }),
               SizedBox(height: 8),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(children: _getCategoryItemList()),
+              _buildHomeCategoryList(),
+              SizedBox(height: 8),
+
+              GetBuilder(
+                init: _productListByTagController,
+                builder: (controller) {
+                  return Column(
+                    children: [
+                      HomeSctionHeader(title: 'Popular', onTap: () {}),
+                      SizedBox(height: 8),
+                      Visibility(
+                          visible:controller.isInitialLoading==false,
+                          replacement: SizedBox(height:100,child:CenteredProgressIndicator()),
+                          child: _buildProductItemListbyExclusivity(controller.popularProductList.isNotEmpty?controller.popularProductList:controller.newProductList)),
+                      SizedBox(height: 8),
+                      HomeSctionHeader(title: 'Special', onTap: () {}),
+                      SizedBox(height: 8),
+                      Visibility(
+                          visible:controller.isInitialLoading==false,
+                          replacement: SizedBox(height:100,child:CenteredProgressIndicator()),
+                          child: _buildProductItemListbyExclusivity(controller.specialProductList.isNotEmpty?controller.specialProductList:controller.newProductList)),
+                      SizedBox(height: 8),
+                      HomeSctionHeader(title: 'New', onTap: () {}),
+                      SizedBox(height: 8),
+                      Visibility(
+                          visible:controller.isInitialLoading==false,
+                          replacement: SizedBox(height:100,child:CenteredProgressIndicator()),
+                          child: _buildProductItemListbyExclusivity(controller.newProductList)),
+                    ],
+                  );
+                }
               ),
-              SizedBox(height: 8),
-              HomeSctionHeader(title: 'Popular', onTap: () {}),
-              SizedBox(height: 8),
-              _buildProductItemListbyExclusivity(),
-              SizedBox(height: 8),
-              HomeSctionHeader(title: 'Special', onTap: () {}),
-              SizedBox(height: 8),
-              _buildProductItemListbyExclusivity(),
-              SizedBox(height: 8),
-              HomeSctionHeader(title: 'New', onTap: () {}),
-              SizedBox(height: 8),
-              _buildProductItemListbyExclusivity(),
               SizedBox(height: 8),
             ],
           ),
@@ -72,18 +97,16 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _buildProductItemListbyExclusivity() {
-    return SizedBox(
-      height: 182,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: 10,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.only(right: 8.0),
-            child: FittedBox(child: ProductItemWidget()),
-          );
-        },
+
+
+  Widget _buildProductItemListbyExclusivity(List<ProductModel>modelList) {
+    List<ProductModel> list = modelList.length>10?modelList.sublist(0,10):modelList;
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children:list.map((e){
+          return ProductItemWidget(model: e,);
+        }).toList() ,
       ),
     );
   }
@@ -103,14 +126,26 @@ class _HomeScreenState extends State<HomeScreen> {
       ],
     );
   }
+  Widget _buildHomeCategoryList() {
+    return GetBuilder<CategoryController>(
+      builder: (controller) {
+        List<CategoryItemModel>categoryList= controller.categoryList.length<10?controller.categoryList:controller.categoryList.sublist(0,10);
+        return SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(children: _getCategoryItemList(categoryList)),
+        );
+      }
+    );
+  }
 
-  List<Widget> _getCategoryItemList() {
+  List<Widget> _getCategoryItemList(List<CategoryItemModel>categoryList) {
+
     List<Widget> catergoryItems = [];
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < categoryList.length; i++) {
       catergoryItems.add(
         Padding(
           padding: const EdgeInsets.only(right: 16.0),
-          //child: CategoryItem(),
+          child: CategoryItem(model: categoryList[i],),
         ),
       );
     }

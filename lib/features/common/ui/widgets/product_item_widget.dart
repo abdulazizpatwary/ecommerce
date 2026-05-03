@@ -1,12 +1,13 @@
 import 'package:ecommerce/app/app_color.dart';
-import 'package:ecommerce/app/assets_path.dart';
+import 'package:ecommerce/features/common/data/models/product_model.dart';
 import 'package:ecommerce/features/product/ui/screens/product_details_screen.dart';
 import 'package:flutter/material.dart';
 
 class ProductItemWidget extends StatelessWidget {
   const ProductItemWidget({
-    super.key,
+    super.key, required this.model,
   });
+  final ProductModel model;
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +19,7 @@ class ProductItemWidget extends StatelessWidget {
         width: 140,
         child: Card(
           color: Colors.white,
+          margin: EdgeInsets.symmetric(horizontal: 8),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
@@ -25,7 +27,7 @@ class ProductItemWidget extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                height: 100,
+                height: 120,
                 width: 140,
                 padding:EdgeInsets.all(8),
                 decoration: BoxDecoration(
@@ -34,12 +36,9 @@ class ProductItemWidget extends StatelessWidget {
                     topLeft: Radius.circular(16),
                   ),
                   color: AppColors.themeColor.withValues(alpha: 0.12),
+                  image: model.photos.isNotEmpty?DecorationImage(image: NetworkImage(model.photos.first,),fit: BoxFit.cover):null,
                 ),
-                child: Image.asset(
-                  AssetsPath.shoePng,
-                  fit: BoxFit.cover,
-                  //fit: BoxFit.scaleDown,
-                ),
+                child: model.photos.isEmpty?Center(child: Icon(Icons.broken_image)):null,
               ),
 
               Padding(
@@ -48,37 +47,40 @@ class ProductItemWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'New Year special shoe',
+                     model.title,
                       maxLines: 1,
                       style: TextStyle(overflow: TextOverflow.ellipsis,fontWeight: FontWeight.w600,color: Colors.black54),
                     ),
                     SizedBox(height: 2,),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        FittedBox(child: Text('\$100',style: TextStyle(color: AppColors.themeColor,fontWeight: FontWeight.w600),)),
-                        Wrap(
+                    FittedBox(
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Icon(Icons.star, color: Colors.amber, size: 18),
-                            Text('4.8',style: TextStyle(fontWeight: FontWeight.w600),),
+                            FittedBox(child: Text('\$${model.currentPrice}',style: TextStyle(color: AppColors.themeColor,fontWeight: FontWeight.w600),)),
+                            Wrap(
+                              children: [
+                                Icon(Icons.star, color: Colors.amber, size: 18),
+                                Text(model.rating,style: TextStyle(fontWeight: FontWeight.w600),),
+                              ],
+                            ),
+                            Container(
+                        
+                        
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(4),
+                                color: AppColors.themeColor,
+                              ),
+                              padding: EdgeInsets.all(4),
+                              child: Icon(
+                                Icons.favorite_border_outlined,
+                                color: Colors.white,
+                                size: 14,
+                              ),
+                            ),
                           ],
                         ),
-                        Container(
-
-
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(4),
-                            color: AppColors.themeColor,
-                          ),
-                          padding: EdgeInsets.all(4),
-                          child: Icon(
-                            Icons.favorite_border_outlined,
-                            color: Colors.white,
-                            size: 14,
-                          ),
-                        ),
-                      ],
                     ),
+
                     SizedBox(height: 4,),
                   ],
                 ),

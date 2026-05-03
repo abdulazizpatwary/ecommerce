@@ -27,7 +27,7 @@ class _WishListState extends State<WishList> {
             itemCount: 10,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,
               childAspectRatio: 0.8,mainAxisSpacing: 4,crossAxisSpacing: 2), itemBuilder: (ctx,index){
-            return FittedBox(child: ProductItemWidget());
+            //return FittedBox(child: ProductItemWidget());
           }),
         )
         

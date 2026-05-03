@@ -1,7 +1,7 @@
 import 'package:ecommerce/app/app_urls.dart';
 import 'package:ecommerce/core/network/network_caller.dart';
 import 'package:ecommerce/core/network/network_response.dart';
-import 'package:ecommerce/features/home/data/models/slide_model.dart';
+import 'package:ecommerce/features/common/data/models/slider_model.dart';
 import 'package:get/get.dart';
 
 class HomeSliderController extends GetxController{
@@ -10,8 +10,8 @@ class HomeSliderController extends GetxController{
   bool get inProgress=>_inProgress;
   String? get errorMsg=>_errorMsg;
   
-  List<SlideModel>_sliderList=[];
-  List<SlideModel>get sliderList=>_sliderList;
+  List<SliderModel>_sliderList=[];
+  List<SliderModel>get sliderList=>_sliderList;
   
   Future<bool>getSliderList()async{
     bool isSuccess=false;
@@ -19,9 +19,9 @@ class HomeSliderController extends GetxController{
     update();
     NetworkResponse response =await Get.find<NetworkCaller>().getRequest(url: AppUrls.sliderUrl);
     if(response.isSuccess){
-      List<SlideModel>list=[];
+      List<SliderModel>list=[];
       for(Map<String,dynamic>data in response.responseBody!['data']['results']){
-        list.add(SlideModel.fromJson(data));
+        list.add(SliderModel.fromJson(data));
       }
       _sliderList=list;
       isSuccess=true;

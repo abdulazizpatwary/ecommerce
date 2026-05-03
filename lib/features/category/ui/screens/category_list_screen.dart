@@ -20,12 +20,12 @@ class _CategoryListScreenState extends State<CategoryListScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    _categoryController.getCategoryList();
+    //_categoryController.getCategoryList();
     _scrollController.addListener(loadMore);
 
   }
   Future<void> loadMore()async{
-    if(_scrollController.position.extentAfter>300){
+    if(_scrollController.position.extentAfter<300){
       await _categoryController.getCategoryList();
     }
   }
@@ -43,23 +43,28 @@ class _CategoryListScreenState extends State<CategoryListScreen> {
             }
             return Padding(
               padding: const EdgeInsets.all(16.0),
-              child: Column(
-                children: [
-                  Expanded(
-                    child: GridView.builder(
-                      controller: _scrollController,
-                      itemCount: controller.categoryList.length,
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4,
-                      crossAxisSpacing: 8,
-                      mainAxisSpacing: 16,
-                    ), itemBuilder: (ctx,index){
-                      return FittedBox(child: CategoryItem(model: controller.categoryList[index],));
-                    }),
-                  ),
-                  Visibility(
-                    visible: controller.isLoading,
-                      child: LinearProgressIndicator())
-                ],
+              child: RefreshIndicator(
+                onRefresh: (){
+                  return _categoryController.onRefresh();
+                },
+                child: Column(
+                  children: [
+                    Expanded(
+                      child: GridView.builder(
+                        controller: _scrollController,
+                        itemCount: controller.categoryList.length,
+                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4,
+                        crossAxisSpacing: 8,
+                        mainAxisSpacing: 16,
+                      ), itemBuilder: (ctx,index){
+                        return FittedBox(child: CategoryItem(model: controller.categoryList[index],));
+                      }),
+                    ),
+                    Visibility(
+                      visible: controller.isLoading,
+                        child: LinearProgressIndicator())
+                  ],
+                ),
               ),
             );
           }
