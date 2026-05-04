@@ -35,14 +35,16 @@ class AppRoutes {
       route= ProductListScreen(categoryModel: categoryItemModel,);
     }
     else if(setting.name==ProductDetailsScreen.name){
-      int productId= setting.arguments as int;
+      String productId= setting.arguments as String;
       route= ProductDetailsScreen(productId: productId,);
     }
     else if(setting.name==ProductReviewScreen.name){
-      route= ProductReviewScreen();
+      String productId=setting.arguments as String;
+      route= ProductReviewScreen(productId: productId,);
     }
     else if(setting.name==CreateReviewScreen.name){
-      route= CreateReviewScreen();
+      String productId=setting.arguments as String;
+      route= CreateReviewScreen(productId: productId,);
     }
     return MaterialPageRoute(builder: (context)=>route);
   }

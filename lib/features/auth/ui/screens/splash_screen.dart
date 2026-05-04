@@ -1,7 +1,6 @@
 import 'package:ecommerce/app/app_config.dart';
 import 'package:ecommerce/core/extensions/localizations_extension.dart';
 import 'package:ecommerce/features/auth/ui/controllers/auth_controller.dart';
-import 'package:ecommerce/features/auth/ui/screens/sign_in_screen.dart';
 import 'package:ecommerce/features/auth/ui/widgets/app_logo.dart';
 import 'package:ecommerce/features/common/ui/screens/main_bottom_nav_screen.dart';
 import 'package:flutter/material.dart';
@@ -21,18 +20,13 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     _moveToNextScreen();
   }
-  final AuthController _authController = Get.find<AuthController>();
+
   Future<void> _moveToNextScreen()async{
     await Future.delayed(Duration(seconds: 4));
+     Get.find<AuthController>().isUserLoggedIn();
+    if(!mounted)return;
 
-    if(await _authController.isUserLoggedIn()){
-      if(!mounted)return;
-      Navigator.pushNamedAndRemoveUntil(context, MainBottomNavScreen.name, (predicate)=>false);
-    }
-    else{
-      if(!mounted)return;
-      Navigator.pushReplacementNamed(context, SignInScreen.name);
-    }
+    Navigator.pushNamedAndRemoveUntil(context, MainBottomNavScreen.name, (predicate)=>false);
 
   }
   @override

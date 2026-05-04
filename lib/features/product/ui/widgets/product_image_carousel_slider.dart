@@ -1,9 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ecommerce/app/app_color.dart';
+import 'package:ecommerce/features/common/data/models/product_model.dart';
 import 'package:flutter/material.dart';
 
 class ProductImageCarouselSlider extends StatefulWidget {
-  const ProductImageCarouselSlider({super.key});
+  const ProductImageCarouselSlider({super.key, required this.model});
+  final ProductModel model;
 
   @override
   State<ProductImageCarouselSlider> createState() => _ProductImageCarouselSliderState();
@@ -18,22 +20,17 @@ class _ProductImageCarouselSliderState extends State<ProductImageCarouselSlider>
       children: [
         CarouselSlider(
           options: CarouselOptions(
+            autoPlay: true,
             height: 220.0,
             viewportFraction: 1,
             onPageChanged: (index, reason) {
               _selectedindex.value = index;
             },
           ),
-          items: [1, 2, 3, 4, 5].map((i) {
+          items: widget.model.photos.map((image) {
             return Builder(
               builder: (BuildContext context) {
-                return Container(
-                  width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(color: Colors.black12),
-                  child: Center(
-                    child: Text('text $i', style: TextStyle(fontSize: 16.0)),
-                  ),
-                );
+                return Image.network(image,fit: BoxFit.cover,);
               },
             );
           }).toList(),
@@ -49,7 +46,7 @@ class _ProductImageCarouselSliderState extends State<ProductImageCarouselSlider>
               return Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  for (int i = 0; i < 5; i++)
+                  for (int i = 0; i < widget.model.photos.length; i++)
                     Container(
                       height: 16,
                       width: 16,

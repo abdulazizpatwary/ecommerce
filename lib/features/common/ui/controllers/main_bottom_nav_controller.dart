@@ -1,3 +1,4 @@
+import 'package:ecommerce/features/auth/ui/controllers/auth_controller.dart';
 import 'package:get/get.dart';
 
 class MainBottomNavController extends GetxController{
@@ -7,6 +8,13 @@ class MainBottomNavController extends GetxController{
     if(_selectedIndex==index)return;
     _selectedIndex=index;
     update();
+  }
+
+  bool shouldNavigate(int index){
+    if(index==2||index==3){
+      return Get.find<AuthController>().isValidUser();
+    }
+    return true;
   }
   void moveToCategory(){
     changeIndex(1);

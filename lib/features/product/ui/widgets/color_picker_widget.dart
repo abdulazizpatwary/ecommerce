@@ -6,7 +6,7 @@ class ColorPickerWidget extends StatefulWidget {
     super.key, required this.colors, required this.onColorChange,
   });
   final List<String>colors;
-  final Function(String)onColorChange;
+  final Function(String?)onColorChange;
 
   @override
   State<ColorPickerWidget> createState() => _ColorPickerWidgetState();
@@ -25,6 +25,15 @@ class _ColorPickerWidgetState extends State<ColorPickerWidget> {
     List<Widget>colorItemWidgetList=[];
     for(String color in widget.colors){
       Widget item=getColorItemWidget(name: color, onTap: (){
+        if(color==_selectedColor){
+          _selectedColor=null;
+          widget.onColorChange(_selectedColor);
+          setState(() {
+
+          });
+          return;
+        }
+
         _selectedColor=color;
         widget.onColorChange(_selectedColor!);
         setState(() {
@@ -40,11 +49,12 @@ class _ColorPickerWidgetState extends State<ColorPickerWidget> {
   Widget getColorItemWidget( {required String name, required VoidCallback onTap,required bool isSelected}){
     return GestureDetector(
       onTap: onTap,
+
       child: Container(
         padding: EdgeInsets.all(8),
         margin: EdgeInsets.only(right: 8),
         decoration: BoxDecoration(
-          border: Border.all(),
+          border: Border.all(width: 2),
           borderRadius: BorderRadius.circular(8),
           color: isSelected?AppColors.themeColor:Colors.transparent,
         ),

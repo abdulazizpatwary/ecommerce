@@ -1,9 +1,11 @@
+import 'package:ecommerce/features/review/data/review_item_model.dart';
 import 'package:flutter/material.dart';
 
 class ReviewCardItem extends StatelessWidget {
   const ReviewCardItem({
-    super.key,
+    super.key, required this.model,
   });
+  final ReviewItemModel model;
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +23,10 @@ class ReviewCardItem extends StatelessWidget {
                 child: Icon(Icons.person_2_outlined),
               ),),
             SizedBox(width: 8,),
-            Text('Rabbil Hasan,',style: TextStyle(fontWeight: FontWeight.w500,fontSize: 18,color: Colors.grey.shade800),)
+            Text(model.user.fullName,style: TextStyle(fontWeight: FontWeight.w500,fontSize: 18,color: Colors.grey.shade800),)
           ],
         ),
-        subtitle: Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',style: TextStyle(color: Colors.grey),),
+        subtitle: Text(model.comment,style: TextStyle(color: Colors.grey),),
       ),
     );
   }

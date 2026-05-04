@@ -1,303 +1,217 @@
-# 🛒 Ecommerce Project
+# 🛒 Ecommerce Mobile Application (Flutter)
+
+A production-level **Ecommerce Mobile Application** built using Flutter, following **feature-based clean architecture** and **GetX state management**.  
+This project simulates a real-world shopping experience with complete user flow including authentication, product browsing, cart, wishlist, reviews, and payment integration.
+
+---
 
 ## 📌 Overview
 
-This is a full-stack Ecommerce application built to simulate a real-world online shopping platform. The project is being developed step-by-step with continuous tracking and documentation, focusing on clean architecture and scalability.
+This application is designed to demonstrate a scalable and modular ecommerce system with real API integration and clean architecture principles.  
+It is built to reflect **industry-level production app structure**, making it suitable for portfolio and job applications.
 
 ---
 
-## 🎯 Project Goals
+## 🚀 Key Features
 
-* Build a scalable ecommerce system
-* Implement user authentication and authorization
-* Product listing, search, and filtering
-* Shopping cart and checkout system
-* Order management system
-* Maintain clean and maintainable architecture
-
----
-
-## 🛠 Tech Stack
-
-* Frontend: Flutter
-* State Management: GetX
-* Backend: REST API
-* Local Storage: SharedPreferences
-* Networking: HTTP + Custom Network Layer
-* Architecture: Feature-based Clean Architecture
+### 🔐 Authentication System
+- User Sign In / Sign Up
+- OTP Verification
+- Token-based authentication
+- Auto login using saved session
+- Secure logout handling
 
 ---
 
-## 🚧 Current Status
-
-Phase 1: Core Development (Ongoing)
-
-* App structure completed
-* UI screens implemented
-* API integration ongoing
-* Authentication system completed
-* Category & Product modules connected with backend
-
----
-
-## ✨ Features (Planned)
-
-* User authentication system
-* Product browsing & filtering
-* Product details
-* Cart system
-* Checkout & payment integration
-* Order management
-* Admin panel (future scope)
+### 🏠 Home & Product Discovery
+- Dynamic category listing (API-based)
+- Product sections:
+  - Popular Products
+  - Special Products
+  - New Arrivals
+- Banner carousel slider
+- Search UI (frontend ready)
+- Horizontal product listing
 
 ---
 
-## 📊 Project Tracking
-
-This project is actively maintained. Each update is documented below:
-
----
-
-### 📅 Day 1 Update
-
-* Created main app entry (CraftyBay) using GetMaterialApp
-* Implemented light and dark theme support structure
-* Setup initial route (/) pointing to SplashScreen
-* Built SplashScreen UI with:
-
-  * App logo using reusable AppLogo widget
-  * Loading indicator
-  * Version text
-* Created reusable SVG-based AppLogo widget
+### 🛍 Product System
+- Category-wise product listing
+- Tag-based product filtering system
+- Product details page:
+  - Image carousel slider
+  - Color selection
+  - Size selection
+  - Quantity update
+  - Dynamic price calculation
+- Add to Cart functionality
 
 ---
 
-### 📅 Day 2 Update
-
-* Introduced centralized routing using AppRoutes
-* Added named routes (Splash, SignIn, SignUp, VerifyEmail)
-* Integrated localization (EN, BN)
-* Implemented Sign In Screen with validation
-* Implemented Sign Up Screen with full form validation
-* Implemented OTP Verification Screen with timer
+### 🛒 Cart System
+- Cart item listing
+- Quantity increase/decrease
+- Remove item with per-item loading state
+- Real-time total price calculation
+- Optimized GetX state management
 
 ---
 
-### 📅 Day 3 Update
-
-* Implemented Main Bottom Navigation using GetX
-* Added tabs: Home, Category, Cart, Wishlist
-* Built Home Screen UI:
-
-  * Custom AppBar
-  * Search bar
-  * Carousel slider
-  * Indicator using ValueNotifier
-* Created reusable widgets
+### ❤️ Wishlist System
+- Add / remove wishlist items
+- Real-time UI updates
+- API synced state
+- Integrated across product screens
 
 ---
 
-### 📅 Day 4 Update
-
-* Enhanced Home Screen:
-
-  * Categories section
-  * Product sections (Popular, Special, New)
-* Created reusable section header widget
-* Built reusable ProductItemWidget
+### ⭐ Review System
+- Product review listing
+- Pagination support
+- Create review functionality
+- Total review counter
+- Navigation between review screens
 
 ---
 
-### 📅 Day 5 Update
-
-* Implemented Category List Screen (Grid UI)
-* Added custom AppBar with manual back control
-* Implemented Product List Screen (grid-based)
-* Improved navigation flow
-
----
-
-### 📅 Day 6 Update
-
-* Connected Category → Product List navigation
-* Passed category via route arguments
+### 💳 Payment Integration
+- SSLCommerz payment gateway
+- Transaction ID generation (UUID)
+- Payment status handling:
+  - Success
+  - Failed
+  - Closed
+- Loading state during payment process
 
 ---
 
-### 📅 Day 7 Update
+## ⚙️ Architecture
 
-* Implemented Product Details Screen:
+The project follows **Feature-Based Clean Architecture**:
+- features/
+- ├── auth/
+- ├── home/
+- ├── product/
+- ├── cart/
+- ├── wish/
+- ├── review/
+- └── common/
+---
 
-  * Image slider
-  * Product info
-  * Quantity selector
-  * Color & size picker
-  * Description section
-* Added navigation from Product List
-* Created interactive reusable widgets
+Each feature contains:
+- UI Layer
+- GetX Controller
+- Data Models
+- API Integration Layer
 
 ---
 
-### 📅 Day 8 Update
+## 🌐 Networking Layer
 
-* Implemented Product Review Screen
-* Implemented Create Review Screen
-* Created ReviewCard widget
-* Implemented Wishlist Screen
-* Implemented Cart Screen with total calculation
-* Improved product interaction flow
-
----
-
-### 📅 Day 9 Update
-
-* Built Network Layer (NetworkCaller):
-
-  * GET, POST, PUT, PATCH, DELETE support
-  * JSON handling
-  * Centralized API calls
-
-* Created NetworkResponse wrapper
-
-* Added logging using Logger
-
-* Standardized error handling
+- Centralized API handler (`NetworkCaller`)
+- Supports:
+  - GET
+  - POST
+  - DELETE
+  - PUT / PATCH
+- Standard response model
+- Central error handling
+- Token-based authentication
+- Auto logout on 401 error
 
 ---
 
-### 📅 Day 10 Update
+## 🧠 State Management (GetX)
 
-* Connected Sign In & Sign Up with backend API
-
-* Created request models:
-
-  * SignInRequestModel
-  * SignUpRequestModel
-  * VerifyOtpRequestModel
-
-* Implemented AuthController:
-
-  * saveUserData()
-  * getUserData()
-  * isUserLoggedIn()
-  * clearUserData()
-
-* Stored token & user data using SharedPreferences
-
-* Updated Splash Screen:
-
-  * Auto login check
-  * Navigation based on login state
-
-* Upgraded Network Layer:
-
-  * Dynamic token support
-  * Auto logout on 401
-
-* Implemented Controllers:
-
-  * SignInController
-  * SignUpController
-  * VerifyEmailOtpController
-
-* Integrated Home Slider API:
-
-  * HomeSliderController
-  * SliderModel
-
-* Implemented Category API:
-
-  * CategoryController
-  * Pagination (page & count)
-  * Infinite scrolling
-  * Pull-to-refresh
-
-* Improved architecture:
-
-  * Clean separation (Controller, Model, Network)
-  * Dependency injection using GetX Bindings
+- Reactive state management
+- Optimized controller updates
+- Separate loading states:
+  - Initial loading
+  - Pagination loading
+  - Item-level loading (cart delete)
+- Efficient UI rebuild handling
 
 ---
 
-### 📅 Day 11 Update
+## 📸 Screenshots
 
-* Implemented Product Model:
-
-  * Multiple images (photos)
-  * Colors & Sizes support
-  * Pricing (regular + current)
-  * Rating & quantity handling
-
-* Integrated Product List API (Category-wise):
-
-  * Created ProductListController
-  * Pagination support
-  * Infinite scroll
-  * Pull-to-refresh
-
-* Implemented Product Tag System:
-
-  * Enum-based tags (new, special, popular)
-  * ProductListByTagController
-  * Separate API calls per tag
-
-* Enhanced Home Screen:
-
-  * Connected product sections with API
-  * Popular, Special, New sections dynamic
-  * Horizontal product lists
-
-* Improved State Management:
-
-  * Loading states (initial + pagination)
-  * Error handling
-  * Optimized UI updates
-
-* Improved Pagination:
-
-  * Category list
-  * Product list
-  * Product by tag
-  * Prevented unnecessary API calls
-
-* Codebase Improvements:
-
-  * Cleaner JSON parsing
-  * Better separation of concerns
-  * Reusable components optimization
+## 🏠 Home Screen
+![Home Screen](ADD_YOUR_IMAGE_URL_HERE)
 
 ---
 
-### 📌 Day 11 Summary
-
-This update introduces a **fully dynamic product system with API integration**, including category-based listing, tag-based filtering, and optimized pagination.
-The application now behaves closer to a real-world ecommerce platform.
-
----
-
-## 🔮 Upcoming Features
-
-* Product details API integration
-* Add to cart system
-* Wishlist API
-* Order & checkout system
-* Payment gateway integration
+## 🔐 Authentication Screens
+![Login Screen](ADD_YOUR_IMAGE_URL_HERE)
+![Sign Up Screen](ADD_YOUR_IMAGE_URL_HERE)
+![OTP Screen](ADD_YOUR_IMAGE_URL_HERE)
 
 ---
 
-## 🧠 Notes
-
-This project is continuously evolving with focus on:
-
-* Clean Architecture
-* Scalable codebase
-* Real-world API integration
-* Production-level practices
+## 🏷️ Category & Product List
+![Category Screen](ADD_YOUR_IMAGE_URL_HERE)
+![Product List](ADD_YOUR_IMAGE_URL_HERE)
 
 ---
 
-## 📌 Status
-
-🚀 Portfolio-ready (In Progress)
+## 🛍️ Product Details Screen
+![Product Details](ADD_YOUR_IMAGE_URL_HERE)
 
 ---
+
+## 🛒 Cart Screen
+![Cart Screen](ADD_YOUR_IMAGE_URL_HERE)
+
+---
+
+## ❤️ Wishlist Screen
+![Wishlist Screen](ADD_YOUR_IMAGE_URL_HERE)
+
+---
+
+## ⭐ Review System
+![Review List](ADD_YOUR_IMAGE_URL_HERE)
+![Create Review](ADD_YOUR_IMAGE_URL_HERE)
+
+---
+
+## 💳 Payment Screen
+![Payment Screen](ADD_YOUR_IMAGE_URL_HERE)
+
+---
+
+## 📊 Project Highlights
+
+- Real-world ecommerce flow implementation
+- Modular and scalable architecture
+- API-driven dynamic UI
+- Production-level state management
+- Payment gateway integration
+- Clean and reusable code structure
+
+---
+
+## 🔮 Future Improvements
+
+- Order tracking system
+- Admin dashboard
+- Push notifications
+- Advanced search & filtering
+- Analytics dashboard
+
+---
+
+## 🧾 Tech Stack
+
+- Flutter
+- GetX
+- REST API
+- SharedPreferences
+- SSLCommerz Payment Gateway
+- Custom Networking Layer
+
+---
+
+## 🏁 Summary
+
+This project represents a **real-world scalable ecommerce mobile application**, built with industry-standard architecture and best practices.  
+It is optimized for **portfolio presentation and job applications**.

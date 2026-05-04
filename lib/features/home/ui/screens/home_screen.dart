@@ -1,8 +1,8 @@
 import 'package:ecommerce/app/assets_path.dart';
 import 'package:ecommerce/core/widgets/centered_progress_indicator.dart';
 import 'package:ecommerce/features/common/data/models/category_item_model.dart';
-import 'package:ecommerce/features/common/data/models/enum_tag.dart';
 import 'package:ecommerce/features/common/data/models/product_model.dart';
+import 'package:ecommerce/features/common/ui/controllers/add_to_wish_list_controller.dart';
 import 'package:ecommerce/features/common/ui/controllers/category_controller.dart';
 import 'package:ecommerce/features/common/ui/controllers/main_bottom_nav_controller.dart';
 import 'package:ecommerce/features/common/ui/widgets/category_item_widget.dart';
@@ -27,15 +27,12 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController _searchBar = TextEditingController();
-  final ProductListByTagController _productListByTagController =ProductListByTagController();
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    _productListByTagController.getProductListByTag(ProductListTag.newProducts);
-    _productListByTagController.getProductListByTag(ProductListTag.popularProduct);
-    _productListByTagController.getProductListByTag(ProductListTag.specialProducts);
+
 
   }
 
@@ -60,8 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
               _buildHomeCategoryList(),
               SizedBox(height: 8),
 
-              GetBuilder(
-                init: _productListByTagController,
+              GetBuilder<ProductListByTagController>(
                 builder: (controller) {
                   return Column(
                     children: [
@@ -105,7 +101,9 @@ class _HomeScreenState extends State<HomeScreen> {
       scrollDirection: Axis.horizontal,
       child: Row(
         children:list.map((e){
-          return ProductItemWidget(model: e,);
+          return ProductItemWidget(model: e, icon: Icons.favorite_border_outlined, onTapFavourite: () {
+            Get.find<AddToWishListController>().addToWishList(e.id);
+          },);
         }).toList() ,
       ),
     );

@@ -1,5 +1,7 @@
 import 'package:ecommerce/core/widgets/centered_progress_indicator.dart';
 import 'package:ecommerce/features/common/data/models/category_item_model.dart';
+import 'package:ecommerce/features/common/data/models/product_model.dart';
+import 'package:ecommerce/features/common/ui/controllers/add_to_wish_list_controller.dart';
 import 'package:ecommerce/features/common/ui/controllers/product_list_controller.dart';
 import 'package:ecommerce/features/common/ui/widgets/app_bar.dart';
 import 'package:ecommerce/features/common/ui/widgets/product_item_widget.dart';
@@ -17,8 +19,7 @@ class ProductListScreen extends StatefulWidget {
 }
 
 class _ProductListScreenState extends State<ProductListScreen> {
-  final ProductListController _productListController =
-      ProductListController();
+  final ProductListController _productListController = ProductListController();
   final ScrollController _scrollController = ScrollController();
 
   @override
@@ -27,8 +28,9 @@ class _ProductListScreenState extends State<ProductListScreen> {
     _productListController.getProductList(widget.categoryModel.id);
     _scrollController.addListener(loadMore);
   }
-  Future<void>loadMore()async{
-    if(_scrollController.position.extentAfter<300){
+
+  Future<void> loadMore() async {
+    if (_scrollController.position.extentAfter < 300) {
       _productListController.getProductList(widget.categoryModel.id);
     }
   }
@@ -45,14 +47,14 @@ class _ProductListScreenState extends State<ProductListScreen> {
       body: GetBuilder(
         init: _productListController,
         builder: (controller) {
-          if(controller.isInitialLoading){
+          if (controller.isInitialLoading) {
             return CenteredProgressIndicator();
           }
           return Column(
             children: [
               Expanded(
                 child: RefreshIndicator(
-                  onRefresh: (){
+                  onRefresh: () {
                     return controller.onRefresh(widget.categoryModel.id);
                   },
                   child: GridView.builder(
@@ -64,9 +66,16 @@ class _ProductListScreenState extends State<ProductListScreen> {
                       crossAxisSpacing: 0,
                     ),
                     itemBuilder: (ctx, index) {
+                      ProductModel model = controller.productList[index];
                       return FittedBox(
                         child: ProductItemWidget(
-                          model: controller.productList[index],
+                          model: model,
+                          icon: Icons.favorite_outline_outlined,
+                          onTapFavourite: () {
+                            Get.find<AddToWishListController>().addToWishList(
+                              model.id,
+                            );
+                          },
                         ),
                       );
                     },
@@ -75,7 +84,8 @@ class _ProductListScreenState extends State<ProductListScreen> {
               ),
               Visibility(
                 visible: controller.isLoading,
-                  child: LinearProgressIndicator()),
+                child: LinearProgressIndicator(),
+              ),
             ],
           );
         },

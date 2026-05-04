@@ -6,7 +6,7 @@ class SizePickerWidget extends StatefulWidget {
     super.key, required this.sizes, required this.onSizeChange,
   });
   final List<String>sizes;
-  final Function(String)onSizeChange;
+  final Function(String?)onSizeChange;
 
   @override
   State<SizePickerWidget> createState() => _SizePickerWidgetState();
@@ -25,6 +25,14 @@ class _SizePickerWidgetState extends State<SizePickerWidget> {
     List<Widget>sizeItemWidgets=[];
     for(String size in widget.sizes){
       Widget item=getSizeItemWidget(name: size, onTap: (){
+        if(size==_selectedSize){
+          _selectedSize=null;
+          widget.onSizeChange(_selectedSize);
+          setState(() {
+
+          });
+          return;
+        }
         _selectedSize=size;
         widget.onSizeChange(_selectedSize!);
         setState(() {
@@ -44,7 +52,7 @@ class _SizePickerWidgetState extends State<SizePickerWidget> {
         padding: EdgeInsets.all(8),
         margin: EdgeInsets.only(right: 8),
         decoration: BoxDecoration(
-          border: Border.all(),
+          border: Border.all(width: 2),
           borderRadius: BorderRadius.circular(8),
           color: isSelected?AppColors.themeColor:Colors.transparent,
         ),

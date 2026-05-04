@@ -6,10 +6,10 @@ import 'package:logger/logger.dart';
 
 class NetworkCaller {
   final Logger _logger=Logger();
-  final String accessToken;
+  final String Function()accessToken;
   final Function unAuthorize;
 
-  NetworkCaller({required this.accessToken, required this.unAuthorize});
+  NetworkCaller({ required this.accessToken,required this.unAuthorize,});
   Future<NetworkResponse> getRequest({
     required String url,
     Map<String, dynamic>? queryParams,
@@ -22,7 +22,7 @@ class NetworkCaller {
 
       Uri uri = Uri.parse(url);
 
-      Map<String, String> headers = {'token': accessToken};
+      Map<String, String> headers = {'token': accessToken()};
       _logRequest(url: url,headers: headers);
       Response response = await get(uri, headers: headers);
       _logResponse(url: url, response: response);
@@ -66,7 +66,7 @@ class NetworkCaller {
       Uri uri = Uri.parse(url);
       Map<String, String> headers = {
         'content-type': 'application/json',
-        'token': accessToken,
+        'token': accessToken(),
       };
       _logRequest(url: url,headers: headers,body: body);
       Response response = await post(
@@ -115,7 +115,7 @@ class NetworkCaller {
       Uri uri = Uri.parse(url);
       Map<String, String> headers = {
         'content-type': 'application/json',
-        'token': accessToken,
+        'token': accessToken(),
       };
       _logRequest(url: url,headers: headers,body: body);
       Response response = await put(
@@ -162,7 +162,7 @@ class NetworkCaller {
       Uri uri = Uri.parse(url);
       Map<String, String> headers = {
         'content-type': 'application/json',
-        'token': accessToken,
+        'token': accessToken(),
       };
       _logRequest(url: url,headers: headers,body: body);
       Response response = await patch(
@@ -209,12 +209,11 @@ class NetworkCaller {
       Uri uri = Uri.parse(url);
       Map<String, String> headers = {
         'content-type': 'application/json',
-        'token': accessToken,
+        'token': accessToken(),
       };
       _logRequest(url: url,headers: headers,body: body);
       Response response = await delete(
         uri,
-        body: jsonEncode(body),
         headers: headers,
       );
       _logResponse(url: url, response: response);
