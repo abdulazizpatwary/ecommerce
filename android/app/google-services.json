@@ -1,0 +1,523 @@
+{
+  "project_info": {
+    "project_number": "626749773784",
+    "firebase_url": "https://flutter-apps-36f38-default-rtdb.firebaseio.com",
+    "project_id": "flutter-apps-36f38",
+    "storage_bucket": "flutter-apps-36f38.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:626749773784:android:e20ae951c5e994eaa744ad",
+        "android_client_info": {
+          "package_name": "com.example.adwa.firebase_auth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "626749773784-ins3jrgt1ev5v2o8clkoscnq4f6dlcsf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.adwa.firebase_auth",
+            "certificate_hash": "78173ea0056c0c62d806512830d73532f5c2390b"
+          }
+        },
+        {
+          "client_id": "626749773784-v9dc7mf7qdt4npjlb1j01602s6u04isi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDxT22XFF2fngwdjqtewff-tCtRoY3oio"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "626749773784-v9dc7mf7qdt4npjlb1j01602s6u04isi.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "626749773784-1qj7ldum7g0rehl0mac6atl6td46ja6b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.firebaseFootballScore"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:626749773784:android:791be41926c21c22a744ad",
+        "android_client_info": {
+          "package_name": "com.example.adwa.firebaselearning"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "626749773784-v9dc7mf7qdt4npjlb1j01602s6u04isi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDxT22XFF2fngwdjqtewff-tCtRoY3oio"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "626749773784-v9dc7mf7qdt4npjlb1j01602s6u04isi.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "626749773784-1qj7ldum7g0rehl0mac6atl6td46ja6b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.firebaseFootballScore"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:626749773784:android:9119fc04709dbf35a744ad",
+        "android_client_info": {
+          "package_name": "com.example.ecomerce_until_product_details_half"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "626749773784-v9dc7mf7qdt4npjlb1j01602s6u04isi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDxT22XFF2fngwdjqtewff-tCtRoY3oio"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "626749773784-v9dc7mf7qdt4npjlb1j01602s6u04isi.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "626749773784-1qj7ldum7g0rehl0mac6atl6td46ja6b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.firebaseFootballScore"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:626749773784:android:2c525585900c655fa744ad",
+        "android_client_info": {
+          "package_name": "com.example.ecommerce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "626749773784-v9dc7mf7qdt4npjlb1j01602s6u04isi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDxT22XFF2fngwdjqtewff-tCtRoY3oio"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "626749773784-v9dc7mf7qdt4npjlb1j01602s6u04isi.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "626749773784-1qj7ldum7g0rehl0mac6atl6td46ja6b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.firebaseFootballScore"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:626749773784:android:973ada9917a17fcca744ad",
+        "android_client_info": {
+          "package_name": "com.example.ecommerce_exercise1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "626749773784-v9dc7mf7qdt4npjlb1j01602s6u04isi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDxT22XFF2fngwdjqtewff-tCtRoY3oio"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "626749773784-v9dc7mf7qdt4npjlb1j01602s6u04isi.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "626749773784-1qj7ldum7g0rehl0mac6atl6td46ja6b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.firebaseFootballScore"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:626749773784:android:e9bb8f7689d5bd84a744ad",
+        "android_client_info": {
+          "package_name": "com.example.ecommerce_signupotp_exercise"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "626749773784-v9dc7mf7qdt4npjlb1j01602s6u04isi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDxT22XFF2fngwdjqtewff-tCtRoY3oio"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "626749773784-v9dc7mf7qdt4npjlb1j01602s6u04isi.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "626749773784-1qj7ldum7g0rehl0mac6atl6td46ja6b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.firebaseFootballScore"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:626749773784:android:1c02f1ca3e5da054a744ad",
+        "android_client_info": {
+          "package_name": "com.example.firebase_firestore_fcm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "626749773784-v9dc7mf7qdt4npjlb1j01602s6u04isi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDxT22XFF2fngwdjqtewff-tCtRoY3oio"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "626749773784-v9dc7mf7qdt4npjlb1j01602s6u04isi.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "626749773784-1qj7ldum7g0rehl0mac6atl6td46ja6b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.firebaseFootballScore"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:626749773784:android:3f0000369a6a1ab6a744ad",
+        "android_client_info": {
+          "package_name": "com.example.firebase_football_score"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "626749773784-v9dc7mf7qdt4npjlb1j01602s6u04isi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDxT22XFF2fngwdjqtewff-tCtRoY3oio"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "626749773784-v9dc7mf7qdt4npjlb1j01602s6u04isi.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "626749773784-1qj7ldum7g0rehl0mac6atl6td46ja6b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.firebaseFootballScore"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:626749773784:android:c5737f3709efbccda744ad",
+        "android_client_info": {
+          "package_name": "com.example.firenaseintro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "626749773784-v9dc7mf7qdt4npjlb1j01602s6u04isi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDxT22XFF2fngwdjqtewff-tCtRoY3oio"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "626749773784-v9dc7mf7qdt4npjlb1j01602s6u04isi.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "626749773784-1qj7ldum7g0rehl0mac6atl6td46ja6b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.firebaseFootballScore"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:626749773784:android:40c5052511ab4fb8a744ad",
+        "android_client_info": {
+          "package_name": "com.example.firestore_execise_with_fcm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "626749773784-v9dc7mf7qdt4npjlb1j01602s6u04isi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDxT22XFF2fngwdjqtewff-tCtRoY3oio"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "626749773784-v9dc7mf7qdt4npjlb1j01602s6u04isi.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "626749773784-1qj7ldum7g0rehl0mac6atl6td46ja6b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.firebaseFootballScore"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:626749773784:android:836f6147ae6d3644a744ad",
+        "android_client_info": {
+          "package_name": "com.example.firestorecloud_firebasecloud_msessaging_practice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "626749773784-v9dc7mf7qdt4npjlb1j01602s6u04isi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDxT22XFF2fngwdjqtewff-tCtRoY3oio"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "626749773784-v9dc7mf7qdt4npjlb1j01602s6u04isi.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "626749773784-1qj7ldum7g0rehl0mac6atl6td46ja6b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.firebaseFootballScore"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:626749773784:android:79a29daa5e515e30a744ad",
+        "android_client_info": {
+          "package_name": "com.example.flutterintro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "626749773784-v9dc7mf7qdt4npjlb1j01602s6u04isi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDxT22XFF2fngwdjqtewff-tCtRoY3oio"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "626749773784-v9dc7mf7qdt4npjlb1j01602s6u04isi.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "626749773784-1qj7ldum7g0rehl0mac6atl6td46ja6b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.firebaseFootballScore"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:626749773784:android:cfcbc61fa9c0dd20a744ad",
+        "android_client_info": {
+          "package_name": "com.example.football_live_score_exercise"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "626749773784-v9dc7mf7qdt4npjlb1j01602s6u04isi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDxT22XFF2fngwdjqtewff-tCtRoY3oio"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "626749773784-v9dc7mf7qdt4npjlb1j01602s6u04isi.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "626749773784-1qj7ldum7g0rehl0mac6atl6td46ja6b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.firebaseFootballScore"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:626749773784:android:f6cbf98663076018a744ad",
+        "android_client_info": {
+          "package_name": "com.example.getxnavigationandcontroller"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "626749773784-v9dc7mf7qdt4npjlb1j01602s6u04isi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDxT22XFF2fngwdjqtewff-tCtRoY3oio"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "626749773784-v9dc7mf7qdt4npjlb1j01602s6u04isi.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "626749773784-1qj7ldum7g0rehl0mac6atl6td46ja6b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.firebaseFootballScore"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

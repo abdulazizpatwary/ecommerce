@@ -1,217 +1,251 @@
-# 🛒 Ecommerce Mobile Application (Flutter)
+#  CraftyBay – Flutter Ecommerce Application
 
-A production-level **Ecommerce Mobile Application** built using Flutter, following **feature-based clean architecture** and **GetX state management**.  
-This project simulates a real-world shopping experience with complete user flow including authentication, product browsing, cart, wishlist, reviews, and payment integration.
+CraftyBay is a production-ready Flutter ecommerce mobile application built using GetX state management and feature-based clean architecture.
 
----
-
-## 📌 Overview
-
-This application is designed to demonstrate a scalable and modular ecommerce system with real API integration and clean architecture principles.  
-It is built to reflect **industry-level production app structure**, making it suitable for portfolio and job applications.
+It delivers a complete end-to-end shopping experience including authentication, category-based product browsing, cart management, wishlist, reviews, and secure payment integration using real APIs.
 
 ---
 
-## 🚀 Key Features
+##  Project Highlights
 
-### 🔐 Authentication System
-- User Sign In / Sign Up
-- OTP Verification
+- End-to-end functional ecommerce application
+- API-driven dynamic product system
+- Category-based product filtering system
+- Bottom navigation-based multipage architecture
+- Modular feature-based clean structure
+- GetX state management (reactive & optimized)
+- Secure authentication with token-based session handling
+- SSLCommerz payment gateway integration
+- Product review system with real-time updates
+- Firebase Crashlytics integration for crash monitoring
+- Localization-ready scalable architecture
+- Centralized networking layer with error handling
+- Production-level scalable project structure
+
+---
+
+##  Core Features
+
+###  Authentication System
+- User login & registration
+- OTP verification system
 - Token-based authentication
-- Auto login using saved session
+- Persistent login session
 - Secure logout handling
 
 ---
 
-### 🏠 Home & Product Discovery
-- Dynamic category listing (API-based)
+###  Home & Product Discovery
+- Dynamic category loading from API
+- Category-based product filtering
 - Product sections:
   - Popular Products
   - Special Products
   - New Arrivals
-- Banner carousel slider
-- Search UI (frontend ready)
-- Horizontal product listing
+- Banner slider system
+- Search functionality (UI + API ready)
+- Horizontal product listing system
 
 ---
 
-### 🛍 Product System
-- Category-wise product listing
-- Tag-based product filtering system
+###  Category System
+- API-based dynamic category management
+- Category-wise product filtering
+- Smooth category switching
+- Real-time product updates based on selection
+
+---
+
+###  Navigation System
+- Bottom Navigation Bar implementation
+- Main sections:
+  - Home
+  - Cart
+  - Wishlist
+  - Profile
+- Smooth navigation with state preservation
+
+---
+
+###  Product System
+- Category & tag-based product filtering
 - Product details page:
-  - Image carousel slider
+  - Image slider
   - Color selection
   - Size selection
-  - Quantity update
+  - Quantity controller
   - Dynamic price calculation
-- Add to Cart functionality
+- Add to cart functionality
 
 ---
 
-### 🛒 Cart System
-- Cart item listing
+###  Cart System
+- Cart item management
 - Quantity increase/decrease
-- Remove item with per-item loading state
+- Item removal with loading state
 - Real-time total price calculation
-- Optimized GetX state management
+- Optimized GetX reactive updates
 
 ---
 
-### ❤️ Wishlist System
+###  Wishlist System
 - Add / remove wishlist items
-- Real-time UI updates
-- API synced state
-- Integrated across product screens
+- API-synced state management
+- Cross-screen consistency
 
 ---
 
-### ⭐ Review System
+###  Review System
 - Product review listing
+- Add review functionality
 - Pagination support
-- Create review functionality
-- Total review counter
-- Navigation between review screens
+- Live review count update
+- Integrated with product details
 
 ---
 
-### 💳 Payment Integration
-- SSLCommerz payment gateway
+###  Payment Integration
+- SSLCommerz payment gateway integration
 - Transaction ID generation (UUID)
 - Payment status handling:
   - Success
   - Failed
-  - Closed
-- Loading state during payment process
+  - Cancelled
+- Loading & error handling states
 
 ---
 
-## ⚙️ Architecture
+##  Architecture Overview
 
-The project follows **Feature-Based Clean Architecture**:
-- features/
-- ├── auth/
-- ├── home/
-- ├── product/
-- ├── cart/
-- ├── wish/
-- ├── review/
-- └── common/
----
+CraftyBay follows a **feature-based clean architecture**:
 
-Each feature contains:
-- UI Layer
-- GetX Controller
-- Data Models
-- API Integration Layer
+- Each feature is independent module
+- Separation of UI, Controller, and Data layer
+- Reusable components across modules
+- Scalable folder structure for future growth
+
+This structure ensures maintainability and scalability for real-world applications.
 
 ---
 
-## 🌐 Networking Layer
+##  Networking Layer
 
-- Centralized API handler (`NetworkCaller`)
-- Supports:
-  - GET
-  - POST
-  - DELETE
-  - PUT / PATCH
-- Standard response model
-- Central error handling
+- Central API handler (NetworkCaller)
+- Supports GET, POST, PUT, DELETE
+- Standardized response model
+- Centralized error handling
 - Token-based authentication
-- Auto logout on 401 error
+- Auto logout on 401 Unauthorized response
 
 ---
 
-## 🧠 State Management (GetX)
+##  State Management (GetX)
 
-- Reactive state management
-- Optimized controller updates
-- Separate loading states:
+- Reactive state management system
+- Controller-based architecture
+- Multiple loading states:
   - Initial loading
+  - Action-based loading
   - Pagination loading
-  - Item-level loading (cart delete)
-- Efficient UI rebuild handling
+- Optimized UI rebuild strategy
+- Clean lifecycle management
 
 ---
 
-## 📸 Screenshots
+##  Localization
 
-## 🏠 Home Screen
-![Home Screen](ADD_YOUR_IMAGE_URL_HERE)
-
----
-
-## 🔐 Authentication Screens
-![Login Screen](ADD_YOUR_IMAGE_URL_HERE)
-![Sign Up Screen](ADD_YOUR_IMAGE_URL_HERE)
-![OTP Screen](ADD_YOUR_IMAGE_URL_HERE)
+- Multi-language ready architecture
+- Scalable i18n structure
+- Easy extension for multiple locales
 
 ---
 
-## 🏷️ Category & Product List
-![Category Screen](ADD_YOUR_IMAGE_URL_HERE)
-![Product List](ADD_YOUR_IMAGE_URL_HERE)
+##  Crash Monitoring (Firebase Crashlytics)
+
+- Real-time crash tracking system
+- Captures Flutter & platform-level crashes
+- Improves production stability
+- Helps in debugging and monitoring app health
 
 ---
 
-## 🛍️ Product Details Screen
-![Product Details](ADD_YOUR_IMAGE_URL_HERE)
+## App Screenshots
+
+###  Bottom Navigation Screens
+| Home | Home 2 | Category | Cart | Wishlist |
+|------|---------|----------|------|----------|
+| ![Home](./app_screenshots/home_screen.png) | ![Home 2](./app_screenshots/home_screen1.png) | ![Category](./app_screenshots/category_list_screen.png) | ![Cart](./app_screenshots/cart_list_screen.png) | ![Wishlist](./app_screenshots/wish_list_screen.png) |
 
 ---
 
-## 🛒 Cart Screen
-![Cart Screen](ADD_YOUR_IMAGE_URL_HERE)
+###  Product Flow
+| Category Product List | Product Details |
+|----------------------|------------------|
+| ![Category Products](./app_screenshots/category_based_productlist_screen.png) | ![Product Details](./app_screenshots/prodct_details_screen1.png) |
 
 ---
 
-## ❤️ Wishlist Screen
-![Wishlist Screen](ADD_YOUR_IMAGE_URL_HERE)
+###  Review Section
+| Review List | Create Review |
+|-------------|---------------|
+| ![Review List](./app_screenshots/reviewListScreen.png) | ![Create Review](./app_screenshots/create_review_screen.png) |
 
 ---
 
-## ⭐ Review System
-![Review List](ADD_YOUR_IMAGE_URL_HERE)
-![Create Review](ADD_YOUR_IMAGE_URL_HERE)
+###  Payment Flow
+| Make Payment | Confirm Payment |
+|--------------|------------------|
+| ![Make Payment](./app_screenshots/make_payment_screen.png) | ![Confirm Payment](./app_screenshots/confirm_payment.png) |
 
 ---
 
-## 💳 Payment Screen
-![Payment Screen](ADD_YOUR_IMAGE_URL_HERE)
+###  Authentication & Onboarding
+| Splash Screen | Sign In | Sign Up | OTP Verification |
+|---------------|---------|---------|------------------|
+| ![Splash](./app_screenshots/splash_screen.png) | ![Sign In](./app_screenshots/signin_screen.png) | ![Sign Up](./app_screenshots/sign_up_screen.png) | ![OTP](./app_screenshots/otp_screen.png) |
 
 ---
 
-## 📊 Project Highlights
-
-- Real-world ecommerce flow implementation
-- Modular and scalable architecture
-- API-driven dynamic UI
-- Production-level state management
-- Payment gateway integration
-- Clean and reusable code structure
-
----
-
-## 🔮 Future Improvements
+##  Future Improvements
 
 - Order tracking system
-- Admin dashboard
-- Push notifications
-- Advanced search & filtering
+- Admin dashboard panel
+- Push notifications (Firebase Messaging)
+- Advanced filtering system
 - Analytics dashboard
 
 ---
 
-## 🧾 Tech Stack
+##  Tech Stack
 
 - Flutter
+- Dart
 - GetX
 - REST API
 - SharedPreferences
 - SSLCommerz Payment Gateway
+- Firebase Crashlytics
+- Localization-ready architecture
 - Custom Networking Layer
 
 ---
 
-## 🏁 Summary
+##  Final Note
 
-This project represents a **real-world scalable ecommerce mobile application**, built with industry-standard architecture and best practices.  
-It is optimized for **portfolio presentation and job applications**.
+This App is a production-ready ecommerce mobile application built with real-world architecture principles, API-driven design, and scalable Flutter development practices.
+
+It demonstrates strong understanding of:
+- Mobile app architecture
+- State management (GetX)
+- API integration
+- Payment system handling
+- Crash monitoring (Crashlytics)
+- Localization-ready design
+- Modular clean code structure
+
+---
+
+##  Author
+
+  Abdul Aziz Patwary  
+  Flutter Developer

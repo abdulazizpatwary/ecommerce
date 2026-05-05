@@ -18,10 +18,9 @@ class ProductReviewScreen extends StatefulWidget {
 }
 
 class _ProductReviewScreenState extends State<ProductReviewScreen> {
-  final ReviewListController _reviewListController = Get.find<ReviewListController>();
+  final ReviewListController _reviewListController = ReviewListController();
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_){
       _reviewListController.getReviewList(widget.productId);
@@ -34,11 +33,10 @@ class _ProductReviewScreenState extends State<ProductReviewScreen> {
       appBar: AppBarWidget(title: 'Reviews', onTapBack: (){
         Navigator.pop(context);
       }),
-      body: GetBuilder<ReviewListController>(
-
-
+      body: GetBuilder(
+        init: _reviewListController,
         builder: (controller) {
-          if(controller.isInitialLoading){
+          if(controller.isLoading){
             return CenteredProgressIndicator();
           }
           return Column(
@@ -78,8 +76,11 @@ class _ProductReviewScreenState extends State<ProductReviewScreen> {
               children: [
                 Text('Reviews (${controller.totalReview??0})',style: theme.titleMedium?.copyWith(color: Colors.grey.shade800),),
                 GestureDetector(
-                  onTap: (){
-                    Navigator.pushNamed(context, CreateReviewScreen.name,arguments: widget.productId);
+                  onTap: ()async{
+                   final result= await Navigator.pushNamed(context, CreateReviewScreen.name,arguments: widget.productId);
+                   if(result==true){
+                     _reviewListController.getReviewList(widget.productId);
+                   }
                   },
                   child: Container(
 

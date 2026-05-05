@@ -30,8 +30,7 @@ class _MainBottomNavScreenState extends State<MainBottomNavScreen> {
     CartScreen(),
     WishList(),
   ];
-  final MainBottomNavController _mainBottomNavController =
-      Get.find<MainBottomNavController>();
+
   final HomeSliderController _sliderController = Get.find<HomeSliderController>();
   final CategoryController _categoryController = Get.find<CategoryController>();
   final WishListController _wishListController = Get.find<WishListController>();

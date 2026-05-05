@@ -1,5 +1,4 @@
 import 'package:ecommerce/app/app_color.dart';
-import 'package:ecommerce/app/assets_path.dart';
 import 'package:ecommerce/core/widgets/centered_progress_indicator.dart';
 import 'package:ecommerce/core/widgets/scaffold_msg.dart';
 import 'package:ecommerce/features/cart/data/models/cart_item_model.dart';

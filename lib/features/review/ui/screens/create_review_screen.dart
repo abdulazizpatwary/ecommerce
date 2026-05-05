@@ -28,7 +28,7 @@ class _CreateReviewScreenState extends State<CreateReviewScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarWidget(title: 'Create Review', onTapBack: (){
-        Navigator.pop(context);
+        Navigator.pop(context,true);
       }),
       body: SingleChildScrollView(
         child: Padding(

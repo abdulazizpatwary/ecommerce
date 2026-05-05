@@ -18,6 +18,15 @@ class WishList extends StatefulWidget {
 class _WishListState extends State<WishList> {
   final RemoveFromWishlistController _removeFromWishlistController =
       Get.find<RemoveFromWishlistController>();
+  final WishListController _wishListController =
+  Get.find<WishListController>();
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _wishListController.getWishList();
+
+  }
 
   @override
   Widget build(BuildContext context) {

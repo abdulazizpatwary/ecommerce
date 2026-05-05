@@ -12,6 +12,7 @@ class CraftyBay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
 
       initialBinding: ControllerBinders(),
       theme: AppThemeData.lightThemeData,

@@ -9,11 +9,9 @@ import 'package:ecommerce/features/common/ui/controllers/add_to_wish_list_contro
 import 'package:ecommerce/features/common/ui/controllers/category_controller.dart';
 import 'package:ecommerce/features/common/ui/controllers/main_bottom_nav_controller.dart';
 import 'package:ecommerce/features/common/ui/controllers/home_slider_controller.dart';
-import 'package:ecommerce/features/common/ui/controllers/product_list_controller.dart';
 import 'package:ecommerce/features/common/ui/controllers/wish_list_controller.dart';
 import 'package:ecommerce/features/home/ui/controllers/product_list_by_tag_controller.dart';
 import 'package:ecommerce/features/review/ui/controllers/create_review_controller.dart';
-import 'package:ecommerce/features/review/ui/controllers/review_list_controller.dart';
 import 'package:ecommerce/features/wish/controller/remove_from_wishlist_controller.dart';
 import 'package:get/get.dart';
 
@@ -33,7 +31,6 @@ class ControllerBinders extends Bindings{
     Get.lazyPut(()=>AddToWishListController());
     Get.put(WishListController());
     Get.put(RemoveFromWishlistController());
-    Get.put(ReviewListController());
     Get.put(CreateReviewController());
 
   }
