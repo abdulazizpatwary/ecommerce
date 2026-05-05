@@ -168,6 +168,13 @@ This structure ensures maintainability and scalability for real-world applicatio
 - Helps in debugging and monitoring app health
 
 ---
+##  App Demo Video
+
+This video demonstrates the full functionality of the application including authentication, product browsing, cart system, wishlist, and payment integration.  
+Click here to watch: [Flutter Ecommerce App](https://drive.google.com/file/d/1l_4tzgpRbhk7tvF0rQcMHMBe2U4Zdufj/view?usp=sharing)  
+
+
+---
 
 ## App Screenshots
 
